@@ -17,7 +17,7 @@ function Footer() {
 
                     {/* Link section */}
                     <Col md={4} className="text-center mb-3 mb-md-0">
-                        <Nav.Link as={Link} to="/about" className="text-decoration-none text-light d-block mb-1">About</Nav.Link>
+                        <a href="/about" className="text-decoration-none text-light d-block mb-1">About</a>
                         <a href="/" className="text-decoration-none text-light d-block mb-1">Contact</a>
                         <a href="/" className="text-decoration-none text-light d-block mb-1">Privacy Policy</a>
                     </Col>
