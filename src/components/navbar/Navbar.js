@@ -4,6 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logoNavyBlue from '../../images/saa-logo.png';
 import logoWhite from '../../images/saa-logo-white.png';
 import './navbar.css';
+import {Link} from "react-router-dom";
 
 const NavigationBar = () => {
     // State for scrolling behavior
@@ -70,8 +71,8 @@ const NavigationBar = () => {
                 {/* Navbar links */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-dark">
-                        <Nav.Link href="/" style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
-                        <Nav.Link href="/about" style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
+                        <Nav.Link as={Link} to="/" style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
+                        <Nav.Link as={Link} to="/about" style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
 
                         <NavDropdown
                             title='Alumni'

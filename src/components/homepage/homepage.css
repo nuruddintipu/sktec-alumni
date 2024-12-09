@@ -28,3 +28,7 @@
 .home-text {
     text-align: center;
 }
+
+.event-section {
+    z-index: 10;
+}

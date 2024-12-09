@@ -8,7 +8,7 @@ function Homepage() {
     return (
         <>
             <section className="homepage-bg d-flex align-items-center">
-                <Container className="text-center text-light">
+                <Container className="text-center text-light slide-up fade-in">
                     <h1 className="display-4 fw-bold">Welcome Home</h1>
                     <p className="home-text">
                         Step into the virtual home of SKTEC’s global community <br/>— a place
@@ -19,7 +19,7 @@ function Homepage() {
                 </Container>
             </section>
 
-            <section className='mt-4'>
+            <section className='mt-4 event-section'>
                 <Container>
                     <Row>
                         <Col md={6}>
