@@ -1,13 +1,13 @@
-.homepage-bg {
+.about-bg {
     height: 400px;
     position: relative;
     background-size: cover;
-    background: url("../../images/bg-gate.jpg") no-repeat fixed center;
+    background: url("../../images/bg-wide.jpg") no-repeat fixed center;
 
     background-position-y: -600px;
 }
 
-.homepage-bg::after {
+.about-bg::after {
     content: "";
     position: absolute;
     background-color: rgba(0,0,0,0.7);
@@ -25,6 +25,8 @@
     color: white;
 }
 
-.home-text {
-    text-align: center;
+
+
+.lead {
+    text-align: left;
 }

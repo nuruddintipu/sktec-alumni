@@ -1,7 +1,18 @@
-.navbar .dropdown-toggle {
+/* Default dropdown styles */
+.dropdown-default .dropdown-toggle {
     color: black !important;
 }
 
-.navbar .dropdown-toggle::after {
+.dropdown-default .dropdown-toggle::after {
     color: black !important;
 }
+
+/* Scrolled dropdown styles */
+.dropdown-scrolled .dropdown-toggle {
+    color: white !important;
+}
+
+.dropdown-scrolled .dropdown-toggle::after {
+    color: white !important;
+}
+

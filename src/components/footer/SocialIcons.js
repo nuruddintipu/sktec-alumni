@@ -10,7 +10,7 @@ function SocialIcon({icon, size = "1x", style = {}, className = "", href = ""}) 
     const iconStyle = {
             cursor: 'pointer',
             transition: 'transform 0.3s ease',
-            color: '#222',
+            color: '#fff',
             transform: hover ? 'scale(1.2)' : 'scale(1)',
             ...style,
     };
