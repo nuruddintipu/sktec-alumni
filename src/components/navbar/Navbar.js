@@ -54,7 +54,7 @@ const NavigationBar = () => {
         >
             <Container>
                 {/* Logo */}
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     <Image
                         alt="SAA Logo"
                         src={logo}
