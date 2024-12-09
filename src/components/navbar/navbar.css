@@ -1,0 +1,7 @@
+.navbar .dropdown-toggle {
+    color: black !important;
+}
+
+.navbar .dropdown-toggle::after {
+    color: black !important;
+}

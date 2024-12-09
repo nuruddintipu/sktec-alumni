@@ -48,7 +48,8 @@ function SocialIcons() {
     return (
         <div style={styles}>
             <SocialIcon icon={faTwitter}/>
-            <SocialIcon icon={faFacebook}/>
+            <SocialIcon href="https://www.facebook.com/sktecalumni"
+                        icon={faFacebook}/>
             <SocialIcon icon={faInstagram}/>
             <SocialIcon icon={faLinkedin}/>
         </div>

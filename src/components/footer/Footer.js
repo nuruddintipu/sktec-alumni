@@ -9,7 +9,7 @@ function Footer() {
             <Container>
                 <Row className="align-items-center">
                     {/* Brand Section */}
-                    <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
+                    <Col md={4} className="text-center text-md-start text-dark mb-3 mb-md-0">
                         <h2 className="h3">SAA</h2>
                         <p className="small m-0">Where success is a tradition.</p>
                     </Col>
@@ -22,7 +22,7 @@ function Footer() {
                     </Col>
 
                     {/* Social Icons */}
-                    <Col md={4} className="text-center text-md-end">
+                    <Col md={4} className="text-center text-dark text-md-end">
                         <h3 className="h4 mb-3">Follow Us</h3>
                         <div className="d-flex justify-content-center justify-content-md-end">
                             <SocialIcons/>
@@ -31,7 +31,7 @@ function Footer() {
                 </Row>
                 <Row>
                     <Col className="text-center mt-4">
-                        <small>
+                        <small className="text-dark">
                             © {new Date().getFullYear()} SKTEC Alumni Association. All rights reserved | Designed & Developed By
                             <a
                                 href="https://github.com/nuruddintipu"
