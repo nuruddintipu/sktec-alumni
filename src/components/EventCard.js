@@ -7,7 +7,7 @@ export default function EventCard() {
               <Card.Body>
                   <Card.Title>Alumni Election</Card.Title>
                   <Card.Text>
-                      <h6>January 15, 2025</h6>
+                      January 15, 2025
                   </Card.Text>
                   <Card.Subtitle>Alumni Committee election will be held by the interim committee.</Card.Subtitle>
               </Card.Body>
@@ -17,7 +17,7 @@ export default function EventCard() {
               <Card.Body>
                   <Card.Title>Sample Event</Card.Title>
                   <Card.Text>
-                      <h6>January 15, 2025</h6>
+                      January 15, 2025
                   </Card.Text>
                   <Card.Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Card.Subtitle>
               </Card.Body>
