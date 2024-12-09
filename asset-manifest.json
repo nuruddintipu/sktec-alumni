@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/sktec-alumni/static/css/main.a79ffe05.css",
-    "main.js": "/sktec-alumni/static/js/main.c49fec36.js",
+    "main.js": "/sktec-alumni/static/js/main.f1643121.js",
     "static/media/bg-gate.jpg": "/sktec-alumni/static/media/bg-gate.4906071bf26a16819a49.jpg",
     "static/media/bg-wide.jpg": "/sktec-alumni/static/media/bg-wide.537b99a1b776ea479e8e.jpg",
     "static/media/saa-logo.png": "/sktec-alumni/static/media/saa-logo.8e4a5164297b99eb6bd0.png",
     "static/media/saa-logo-white.png": "/sktec-alumni/static/media/saa-logo-white.1556ec6fbd3ad5e03bfb.png",
     "index.html": "/sktec-alumni/index.html",
     "main.a79ffe05.css.map": "/sktec-alumni/static/css/main.a79ffe05.css.map",
-    "main.c49fec36.js.map": "/sktec-alumni/static/js/main.c49fec36.js.map"
+    "main.f1643121.js.map": "/sktec-alumni/static/js/main.f1643121.js.map"
   },
   "entrypoints": [
     "static/css/main.a79ffe05.css",
-    "static/js/main.c49fec36.js"
+    "static/js/main.f1643121.js"
   ]
 }
