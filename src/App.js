@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
 import RegistrationForm from "./components/forms/RegistrationForm";
 import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
+import Contact from "./components/forms/Contact";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                       <Route path="/about" element={<About />} />
                       <Route path="/registration" element={<RegistrationForm />} />
                       <Route path="/alumni-directory" element={<AlumniDirectory/>}/>
+                      <Route path="/contact" element={<Contact/>}/>
                   </Routes>
               </div>
               <Footer/>

@@ -18,8 +18,8 @@ function Footer() {
                     {/* Link section */}
                     <Col md={4} className="text-center mb-3 mb-md-0">
                         <Link to="/about" className="text-decoration-none text-light d-block mb-1">About</Link>
-                        <Link to="/" className="text-decoration-none text-light d-block mb-1">Contact</Link>
-                        <Link to="/" className="text-decoration-none text-light d-block mb-1">Privacy Policy</Link>
+                        <Link to="/contact" className="text-decoration-none text-light d-block mb-1">Contact</Link>
+                        {/*<Link to="/" className="text-decoration-none text-light d-block mb-1">Privacy Policy</Link>*/}
                     </Col>
 
                     {/* Social Icons */}
