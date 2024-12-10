@@ -7,9 +7,11 @@ import './App.css';
 import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
 import RegistrationForm from "./components/forms/RegistrationForm";
+import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
 
 function App() {
-  return (
+
+    return (
       <Router >
           <div className="app-container">
               <NavigationBar />
@@ -18,6 +20,7 @@ function App() {
                       <Route path="/" element={<Homepage />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/registration" element={<RegistrationForm />} />
+                      <Route path="/alumni-directory" element={<AlumniDirectory/>}/>
                   </Routes>
               </div>
               <Footer/>

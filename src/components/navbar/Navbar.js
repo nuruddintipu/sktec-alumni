@@ -83,7 +83,7 @@ const NavigationBar = () => {
                             id="basic-nav-dropdown"
                             className={dropdownClass}
                         >
-                            <NavDropdown.Item as={Link} to="/">Alumni Directory</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/alumni-directory">Alumni Directory</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/registration">Be a Member</NavDropdown.Item>
                         </NavDropdown>
 
