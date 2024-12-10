@@ -84,7 +84,7 @@ const NavigationBar = () => {
                             className={dropdownClass}
                         >
                             <NavDropdown.Item as={Link} to="/alumni-directory">Alumni Directory</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/registration">Be a Member</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/registration">Join Alumni</NavDropdown.Item>
                         </NavDropdown>
 
                     </Nav>

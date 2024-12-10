@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Col, Container, Form, Row, Table} from "react-bootstrap";
 import AlumniTable from "./AlumniTable";
+import context from "react-bootstrap/NavbarContext";
 
 const AlumniDirectory = () => {
 
@@ -28,76 +29,74 @@ const AlumniDirectory = () => {
         },
         {
             name: "Emily Davis",
-            batch: "2015-16",
+            batch: "2016-17",
             majoredIn: "Yarn Engineering",
             currentJob: "Textile Specialist at GHI",
             contact: "emily.davis@example.com",
         },
         {
             name: "William Brown",
-            batch: "2014-15",
+            batch: "2017-18",
             majoredIn: "Apparel Engineering",
             currentJob: "Operations Manager at JKL",
             contact: "william.brown@example.com",
         },
         {
             name: "Sophia Wilson",
-            batch: "2013-14",
+            batch: "2018-19",
             majoredIn: "Fabric Engineering",
             currentJob: "Freelance Textile Designer",
             contact: "sophia.wilson@example.com",
         },
         {
             name: "James Anderson",
-            batch: "2012-13",
+            batch: "2018-19",
             majoredIn: "Wet Process Engineering",
             currentJob: "Head of Production at MNO",
             contact: "james.anderson@example.com",
         },
         {
             name: "Olivia Martinez",
-            batch: "2011-12",
+            batch: "2018-19",
             majoredIn: "Yarn Engineering",
             currentJob: "Independent Consultant",
             contact: "olivia.martinez@example.com",
         },
         {
             name: "Benjamin White",
-            batch: "2010-11",
+            batch: "2016-17",
             majoredIn: "Apparel Engineering",
             currentJob: "Business Owner",
             contact: "benjamin.white@example.com",
         },
         {
             name: "Charlotte Thomas",
-            batch: "2009-10",
+            batch: "2016-17",
             majoredIn: "Fabric Engineering",
             currentJob: "Senior Designer at PQR",
             contact: "charlotte.thomas@example.com",
         },
     ];
-    const [filters, setFilters] = useState({batch: "", majoredIn: "", search: ""});
+
     const [filteredData, setFilteredData] = useState(sampleData);
 
+    const handleBatchFilterChange = (e) => {
+        const selectedValue = e.target.value;
 
-
-    const handleFilterChange = (field, value) => {
-        const updatedFilters = {...filters, [field]: value};
-
-        setFilters(updatedFilters);
-
-        const filtered = sampleData.filter((entry) => {
-            const matchesBatch = updatedFilters.batch === "" || entry.batch === updatedFilters.batch;
-            const matchesMajor = updatedFilters.majoredIn === "" || entry.majoredIn === updatedFilters.majoredIn;
-            const matchesSearch =
-                updatedFilters.search === "" ||
-                Object.values(entry).some((val) =>
-                    val.toString().toLowerCase().includes(updatedFilters.search.toLowerCase())
-                );
+        const filtered = sampleData.filter((data) => {
+           return selectedValue === "" || data.batch === selectedValue;
         });
+
         setFilteredData(filtered);
     };
 
+    const handleDeptFilterChange = (e) => {
+      const selectedDept = e.target.value;
+      const filtered = sampleData.filter((data) => {
+        return selectedDept === "" ||  data.majoredIn === selectedDept;
+      });
+      setFilteredData(filtered);
+    };
 
     return (
         <Container>
@@ -108,8 +107,6 @@ const AlumniDirectory = () => {
                     <Form.Control
                         type="text"
                         placeholder="Search..."
-                        value={filters.search}
-                        onChange={(e) => handleFilterChange("search", e.target.value)}
                     />
                 </Col>
             </Row>
@@ -120,7 +117,7 @@ const AlumniDirectory = () => {
                     <Form.Select
                         defaultValue=""
                         style={{ color: "grey" }}
-                        onChange={(e) => handleFilterChange("batch", e.target.value)}
+                        onChange={handleBatchFilterChange}
                     >
                         <option value="" disabled>
                             Filter by Batch
@@ -135,7 +132,7 @@ const AlumniDirectory = () => {
                     <Form.Select
                         defaultValue=""
                         style={{ color: "grey" }}
-                        onChange={(e) => handleFilterChange("majoredIn", e.target.value)}
+                        onChange={handleDeptFilterChange}
                     >
                         <option value="" disabled>
                             Filter by Majored In
