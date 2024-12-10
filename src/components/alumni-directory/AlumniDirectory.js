@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Container, Form, Row, Table} from "react-bootstrap";
 import AlumniTable from "./AlumniTable";
-import context from "react-bootstrap/NavbarContext";
 
 const AlumniDirectory = () => {
 
@@ -78,25 +77,42 @@ const AlumniDirectory = () => {
         },
     ];
 
-    const [filteredData, setFilteredData] = useState(sampleData);
+    const [filteredAlumni, setFilteredAlumni] = useState(sampleData);
+    const [selectedDepartment, setSelectedDepartment] = useState("");
+    const [selectedSession, setSelectedSession] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
 
-    const handleBatchFilterChange = (e) => {
-        const selectedValue = e.target.value;
 
-        const filtered = sampleData.filter((data) => {
-           return selectedValue === "" || data.batch === selectedValue;
+    useEffect(() => {
+        applyFilters();
+    }, [selectedSession, selectedDepartment, searchQuery]);
+
+    const handleSessionSelection = (e) => {
+        const selectedSession = e.target.value;
+        setSelectedSession(selectedSession);
+    };
+
+    const handleDepartmentSelection = (e) => {
+        const selectedDept = e.target.value;
+        setSelectedDepartment(selectedDept);
+    };
+    const handleSearchQueryChange = (e) => {
+      const queryText = e.target.value;
+      setSearchQuery(queryText);
+    };
+
+    const applyFilters = () => {
+        const filteredData = sampleData.filter((data) => {
+            const isSessionMatched = selectedSession === "" || data.batch === selectedSession;
+            const isDeptMatched = selectedDepartment === "" || data.majoredIn === selectedDepartment;
+            const isNameMatched = searchQuery === "" ||
+                data.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+            return isSessionMatched && isDeptMatched && isNameMatched;
         });
 
-        setFilteredData(filtered);
-    };
-
-    const handleDeptFilterChange = (e) => {
-      const selectedDept = e.target.value;
-      const filtered = sampleData.filter((data) => {
-        return selectedDept === "" ||  data.majoredIn === selectedDept;
-      });
-      setFilteredData(filtered);
-    };
+        setFilteredAlumni(filteredData);
+    }
 
     return (
         <Container>
@@ -107,6 +123,8 @@ const AlumniDirectory = () => {
                     <Form.Control
                         type="text"
                         placeholder="Search..."
+                        value={searchQuery}
+                        onChange={handleSearchQueryChange}
                     />
                 </Col>
             </Row>
@@ -116,8 +134,8 @@ const AlumniDirectory = () => {
                 <Col md={6}>
                     <Form.Select
                         defaultValue=""
-                        style={{ color: "grey" }}
-                        onChange={handleBatchFilterChange}
+                        style={{color: "grey"}}
+                        onChange={handleSessionSelection}
                     >
                         <option value="" disabled>
                             Filter by Batch
@@ -131,8 +149,8 @@ const AlumniDirectory = () => {
                 <Col md={6}>
                     <Form.Select
                         defaultValue=""
-                        style={{ color: "grey" }}
-                        onChange={handleDeptFilterChange}
+                        style={{color: "grey"}}
+                        onChange={handleDepartmentSelection}
                     >
                         <option value="" disabled>
                             Filter by Majored In
@@ -147,7 +165,7 @@ const AlumniDirectory = () => {
             </Row>
             <Row>
                 <Col>
-                    <AlumniTable alumniData={filteredData}/>
+                    <AlumniTable alumniData={filteredAlumni}/>
                 </Col>
             </Row>
         </Container>
