@@ -43,6 +43,7 @@ const NavigationBar = () => {
 
     return (
         <Navbar
+            variant={scrolling?'dark':''}
             expand="lg"
             sticky="top"
             className="border-bottom"
@@ -66,6 +67,9 @@ const NavigationBar = () => {
                 {/* Navbar toggle for smaller screens */}
                 <Navbar.Toggle
                     aria-controls="basic-navbar-nav"
+                    style={{
+                        borderColor: scrolling ? 'white' : 'black',
+                    }}
                 />
 
                 {/* Navbar links */}
@@ -79,8 +83,8 @@ const NavigationBar = () => {
                             id="basic-nav-dropdown"
                             className={dropdownClass}
                         >
-                            <NavDropdown.Item href="#action/3.1">Alumni Directory</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Be a Member</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/">Alumni Directory</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/registration">Be a Member</NavDropdown.Item>
                         </NavDropdown>
 
                     </Nav>

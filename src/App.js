@@ -6,6 +6,7 @@ import Homepage from "./components/homepage/Homepage";
 import './App.css';
 import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
+import RegistrationForm from "./components/forms/RegistrationForm";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
                   <Routes>
                       <Route path="/" element={<Homepage />} />
                       <Route path="/about" element={<About />} />
-                      {/*<Route path="/admin" element={<AdminDashboard />} />*/}
+                      <Route path="/registration" element={<RegistrationForm />} />
                   </Routes>
               </div>
               <Footer/>
