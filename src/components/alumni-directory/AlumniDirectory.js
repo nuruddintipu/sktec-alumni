@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
-import {Col, Container, Form, Row, Table} from "react-bootstrap";
+import {Col, Container, Form, Pagination, Row} from "react-bootstrap";
+import Filters from "./Filters";
+import PaginationControls from "./PaginationControls";
 import AlumniTable from "./AlumniTable";
 
 const AlumniDirectory = () => {
 
     const sampleData = [
+        // Existing entries
         {
             name: "John Doe",
             batch: "2018-19",
@@ -75,36 +78,53 @@ const AlumniDirectory = () => {
             currentJob: "Senior Designer at PQR",
             contact: "charlotte.thomas@example.com",
         },
+        // Additional entries
+        ...Array.from({ length: 50 }, (_, i) => {
+            const batches = ["2016-17", "2017-18", "2018-19"];
+            const majors = [
+                "Apparel Engineering",
+                "Fabric Engineering",
+                "Wet Process Engineering",
+                "Yarn Engineering",
+            ];
+            const jobTitles = [
+                "Software Engineer",
+                "Quality Control Manager",
+                "Senior Designer",
+                "Operations Manager",
+                "Textile Specialist",
+                "Business Owner",
+                "Freelance Designer",
+                "Independent Consultant",
+            ];
+            return {
+                name: `Alumnus ${i + 1}`,
+                batch: batches[i % batches.length],
+                majoredIn: majors[i % majors.length],
+                currentJob: `${jobTitles[i % jobTitles.length]} at Company ${String.fromCharCode(
+                    65 + (i % 26)
+                )}`,
+                contact: `alumnus${i + 1}@example.com`,
+            };
+        }),
     ];
 
     const [filteredAlumni, setFilteredAlumni] = useState(sampleData);
     const [selectedDepartment, setSelectedDepartment] = useState("");
     const [selectedSession, setSelectedSession] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
 
+    const rowsPerPage = 30;
 
     useEffect(() => {
         applyFilters();
     }, [selectedSession, selectedDepartment, searchQuery]);
 
-    const handleSessionSelection = (e) => {
-        const selectedSession = e.target.value;
-        setSelectedSession(selectedSession);
-    };
-
-    const handleDepartmentSelection = (e) => {
-        const selectedDept = e.target.value;
-        setSelectedDepartment(selectedDept);
-    };
-    const handleSearchQueryChange = (e) => {
-      const queryText = e.target.value;
-      setSearchQuery(queryText);
-    };
-
     const applyFilters = () => {
         const filteredData = sampleData.filter((data) => {
-            const isSessionMatched = selectedSession === "" || data.batch === selectedSession;
-            const isDeptMatched = selectedDepartment === "" || data.majoredIn === selectedDepartment;
+            const isSessionMatched = selectedSession === "All" || selectedSession === "" || data.batch === selectedSession;
+            const isDeptMatched = selectedDepartment ==="All" || selectedDepartment === "" || data.majoredIn === selectedDepartment;
             const isNameMatched = searchQuery === "" ||
                 data.name.toLowerCase().includes(searchQuery.toLowerCase());
 
@@ -114,58 +134,38 @@ const AlumniDirectory = () => {
         setFilteredAlumni(filteredData);
     }
 
+
+    const onFilterChange = (field, value) => {
+        if (field === "searchQuery") setSearchQuery(value);
+        else if (field === "selectedSession") setSelectedSession(value);
+        else if (field === "selectedDepartment") setSelectedDepartment(value);
+    };
+    const totalPages = Math.ceil(filteredAlumni.length / rowsPerPage);
+    const currentAlumniData = filteredAlumni.slice(
+        (currentPage - 1) * rowsPerPage,
+        currentPage * rowsPerPage
+    );
+
+
     return (
         <Container>
             <br/>
             {/* Search Bar */}
-            <Row className="mb-3">
-                <Col>
-                    <Form.Control
-                        type="text"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={handleSearchQueryChange}
-                    />
-                </Col>
-            </Row>
-
-            {/* Filters */}
-            <Row className="mb-3">
-                <Col md={6}>
-                    <Form.Select
-                        defaultValue=""
-                        style={{color: "grey"}}
-                        onChange={handleSessionSelection}
-                    >
-                        <option value="" disabled>
-                            Filter by Batch
-                        </option>
-                        <option value="">All</option>
-                        <option value="2018-19">2018-19</option>
-                        <option value="2017-18">2017-18</option>
-                        <option value="2016-17">2016-17</option>
-                    </Form.Select>
-                </Col>
-                <Col md={6}>
-                    <Form.Select
-                        defaultValue=""
-                        style={{color: "grey"}}
-                        onChange={handleDepartmentSelection}
-                    >
-                        <option value="" disabled>
-                            Filter by Majored In
-                        </option>
-                        <option value="">All</option>
-                        <option value="Apparel Engineering">Apparel Engineering</option>
-                        <option value="Fabric Engineering">Fabric Engineering</option>
-                        <option value="Wet Process Engineering">Wet Process Engineering</option>
-                        <option value="Yarn Engineering">Yarn Engineering</option>
-                    </Form.Select>
-                </Col>
-            </Row>
+            <Filters
+                searchQuery={searchQuery}
+                selectedSession={selectedSession}
+                selectedDepartment={selectedDepartment}
+                onFilterChange={onFilterChange}
+            />
             <Row>
                 <Col>
-                    <AlumniTable alumniData={filteredAlumni}/>
+                    <AlumniTable alumniData={currentAlumniData}/>
+
+                    <PaginationControls
+                        totalPages={totalPages}
+                        currentPage={currentPage}
+                        onPageChange={setCurrentPage}
+                    />
                 </Col>
             </Row>
         </Container>
