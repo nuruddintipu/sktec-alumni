@@ -25,9 +25,9 @@ const Filters = ({ searchQuery, selectedSession, selectedDepartment, onFilterCha
                     >
                         <option value="" disabled>Filter by Batch</option>
                         <option value="All">All</option>
-                        <option value="2018-19">2018-19</option>
-                        <option value="2017-18">2017-18</option>
-                        <option value="2016-17">2016-17</option>
+                        <option value="Kendrobindu">Kendrobindu 3</option>
+                        <option value="Durbar">Durbar 2</option>
+                        <option value="Kandari">Kandari 1</option>
                     </Form.Select>
                 </Col>
                 <Col md={6}>

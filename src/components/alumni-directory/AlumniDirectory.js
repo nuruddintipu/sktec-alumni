@@ -10,77 +10,77 @@ const AlumniDirectory = () => {
         // Existing entries
         {
             name: "John Doe",
-            batch: "2018-19",
+            batch: "Kendrobindu",
             majoredIn: "Apparel Engineering",
             currentJob: "Software Engineer at XYZ",
             contact: "john.doe@example.com",
         },
         {
             name: "Jane Smith",
-            batch: "2017-18",
+            batch: "Durbar",
             majoredIn: "Fabric Engineering",
             currentJob: "Product Designer at ABC",
             contact: "jane.smith@example.com",
         },
         {
             name: "Michael Johnson",
-            batch: "2016-17",
+            batch: "Kandari",
             majoredIn: "Wet Process Engineering",
             currentJob: "Quality Control Manager at DEF",
             contact: "michael.johnson@example.com",
         },
         {
             name: "Emily Davis",
-            batch: "2016-17",
+            batch: "Kandari",
             majoredIn: "Yarn Engineering",
             currentJob: "Textile Specialist at GHI",
             contact: "emily.davis@example.com",
         },
         {
             name: "William Brown",
-            batch: "2017-18",
+            batch: "Durbar",
             majoredIn: "Apparel Engineering",
             currentJob: "Operations Manager at JKL",
             contact: "william.brown@example.com",
         },
         {
             name: "Sophia Wilson",
-            batch: "2018-19",
+            batch: "Kendrobindu",
             majoredIn: "Fabric Engineering",
             currentJob: "Freelance Textile Designer",
             contact: "sophia.wilson@example.com",
         },
         {
             name: "James Anderson",
-            batch: "2018-19",
+            batch: "Kendrobindu",
             majoredIn: "Wet Process Engineering",
             currentJob: "Head of Production at MNO",
             contact: "james.anderson@example.com",
         },
         {
             name: "Olivia Martinez",
-            batch: "2018-19",
+            batch: "Kendrobindu",
             majoredIn: "Yarn Engineering",
             currentJob: "Independent Consultant",
             contact: "olivia.martinez@example.com",
         },
         {
             name: "Benjamin White",
-            batch: "2016-17",
+            batch: "Kandari",
             majoredIn: "Apparel Engineering",
             currentJob: "Business Owner",
             contact: "benjamin.white@example.com",
         },
         {
             name: "Charlotte Thomas",
-            batch: "2016-17",
+            batch: "Kandari",
             majoredIn: "Fabric Engineering",
             currentJob: "Senior Designer at PQR",
             contact: "charlotte.thomas@example.com",
         },
         // Additional entries
         ...Array.from({ length: 50 }, (_, i) => {
-            const batches = ["2016-17", "2017-18", "2018-19"];
+            const batches = ["Kandari", "Durbar", "Kendrobindu"];
             const majors = [
                 "Apparel Engineering",
                 "Fabric Engineering",
@@ -108,6 +108,7 @@ const AlumniDirectory = () => {
             };
         }),
     ];
+
 
     const [filteredAlumni, setFilteredAlumni] = useState(sampleData);
     const [selectedDepartment, setSelectedDepartment] = useState("");
