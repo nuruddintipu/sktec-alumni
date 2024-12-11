@@ -1,5 +1,5 @@
 import AlumniDirectory from "./AlumniDirectory";
-import {DirectoryProvider} from "./DirectoryContext";
+import {DirectoryProvider} from "../../../context/DirectoryContext";
 
 const DirectoryRoute = () => {
     return (

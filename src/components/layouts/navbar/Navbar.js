@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Navbar, Nav, Container, Image} from 'react-bootstrap';
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logoNavyBlue from '../../images/saa-logo.png';
-import logoWhite from '../../images/saa-logo-white.png';
+import logoNavyBlue from '../../../assets/images/saa-logo.png';
+import logoWhite from '../../../assets/images/saa-logo-white.png';
 import './navbar.css';
 import {Link} from "react-router-dom";
 

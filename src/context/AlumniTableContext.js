@@ -1,5 +1,5 @@
 import {createContext, useContext, useState} from "react";
-import {useDirectoryContext} from "../DirectoryContext";
+import {useDirectoryContext} from "./DirectoryContext";
 
 const AlumniTableContext = createContext();
 

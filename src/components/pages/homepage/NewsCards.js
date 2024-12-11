@@ -1,4 +1,4 @@
-import NoticeCard from "../cards/NoticeCard";
+import NoticeCard from "../../cards/NoticeCard";
 
 export default function NewsCards() {
 
@@ -17,10 +17,10 @@ export default function NewsCards() {
 
     return (
         <>
-            {newsConfig.map((data, index) => (
+            {newsConfig.map((data,index) => (
                 <NoticeCard
+                    key={index}
                     noticeData={data}
-                    index={index}
                 />
             ))}
         </>

@@ -1,6 +1,6 @@
 import {createContext, useContext, useMemo, useState} from "react";
-import useFetch from "../../utils/api/useFetch";
-import {useFilterAlumni} from "../../utils/hooks/useFilterAlumni";
+import useFetch from "../services/api/useFetch";
+import {useFilterAlumni} from "../hooks/useFilterAlumni";
 
 const DirectoryContext = createContext();
 

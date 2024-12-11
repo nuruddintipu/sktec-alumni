@@ -1,10 +1,10 @@
 import {Form} from "react-bootstrap";
 
-const SearchBarFilters = ({value, onChange}) => {
+const SearchBarFilters = ({placeholder, value, onChange}) => {
     return (
         <Form.Control
             type="text"
-            placeholder="Search..."
+            placeholder={placeholder}
             value={value}
             onChange={(e) => onChange(e.target.value)}
         />

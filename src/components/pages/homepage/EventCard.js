@@ -1,4 +1,4 @@
-import NoticeCard from "../cards/NoticeCard";
+import NoticeCard from "../../cards/NoticeCard";
 
 export default function EventCard() {
 
@@ -19,8 +19,8 @@ export default function EventCard() {
         <>
             {eventConfig.map((noticeData, index) => (
                 <NoticeCard
+                    key={index}
                     noticeData={noticeData}
-                    index={index}
                 />
             ))}
         </>

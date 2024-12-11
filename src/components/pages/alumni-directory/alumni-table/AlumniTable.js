@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import {useAlumniTableContext} from "./AlumniTableContext";
+import {useAlumniTableContext} from "../../../../context/AlumniTableContext";
 
 
 const AlumniTable = () => {

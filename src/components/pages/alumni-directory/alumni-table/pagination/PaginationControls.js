@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Pagination, Row} from "react-bootstrap";
-import {useAlumniTableContext} from "../AlumniTableContext";
-import {usePagination} from "../../../../utils/hooks/usePagination";
+import {useAlumniTableContext} from "../../../../../context/AlumniTableContext";
+import {usePagination} from "../../../../../hooks/usePagination";
 
 const PaginationControls = () => {
     const {totalPage, currentPage, setCurrentPage} = useAlumniTableContext();

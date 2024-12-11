@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Row} from "react-bootstrap";
 import AlumniTable from "./AlumniTable";
 import PaginationControls from "./pagination/PaginationControls";
-import {AlumniTableDataProvider} from "./AlumniTableContext";
+import {AlumniTableDataProvider} from "../../../../context/AlumniTableContext";
 
 const AlumniTableContainer = () => {
     return (

@@ -1,17 +1,13 @@
 import React from 'react';
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
-import NavigationBar from './components/navbar/Navbar';
-import Homepage from "./components/homepage/Homepage";
-
-import './App.css';
-import Footer from "./components/footer/Footer";
-import About from "./components/about/About";
-import RegistrationForm from "./components/forms/RegistrationForm";
-import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
-import Contact from "./components/forms/Contact";
-import AdminDashboard from "./components/admin-dashboard/AdminDashboard";
-import {DirectoryProvider} from "./components/alumni-directory/DirectoryContext";
-import DirectoryRoute from "./components/alumni-directory/DirectoryRoute";
+import NavigationBar from './components/layouts/navbar/Navbar';
+import Homepage from "./components/pages/homepage/Homepage";
+import './styles/App.css';
+import Footer from "./components/layouts/footer/Footer";
+import RegistrationForm from "./components/pages/forms/RegistrationForm";
+import Contact from "./components/pages/forms/Contact";
+import About from "./components/pages/about/About";
+import DirectoryRoute from "./components/pages/alumni-directory/DirectoryRoute";
 
 function App() {
 

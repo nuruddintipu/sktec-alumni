@@ -2,7 +2,7 @@ import {Col, Row} from "react-bootstrap";
 import SearchBarFilters from "../../../utils/SearchBarFilters";
 import DropdownFilters from "../../../utils/DropdownFilters";
 import React from "react";
-import {useDirectoryContext} from "../DirectoryContext";
+import {useDirectoryContext} from "../../../context/DirectoryContext";
 import { sessionOptions, departmentOptions } from "./filterOptions";
 
 const FilterComponents = () => {
@@ -15,13 +15,13 @@ const FilterComponents = () => {
             value: selectedSession,
             options: sessionOptions,
             field: "selectedSession",
-            placeholder: "Filter by Batch",
+            placeholder: "By Batch",
         },
         {
             value: selectedDepartment,
             options: departmentOptions,
             field: "selectedDepartment",
-            placeholder: "Filter by Department",
+            placeholder: "By Department",
         },
     ];
 
@@ -32,6 +32,7 @@ const FilterComponents = () => {
             <Row className="mb-3">
                 <Col>
                     <SearchBarFilters
+                        placeholder={"By Name"}
                         value={searchQuery}
                         onChange={(val) => onFilterChange("searchQuery", val)}
                     />
