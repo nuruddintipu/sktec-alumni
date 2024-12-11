@@ -1,8 +1,8 @@
 import React from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
 import './homepage.css';
-import EventCard from "../cards/EventCard";
-import NewsCards from "../cards/NewsCards";
+import EventCard from "./EventCard";
+import NewsCards from "./NewsCards";
 
 function Homepage() {
     return (
