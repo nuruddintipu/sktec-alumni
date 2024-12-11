@@ -1,0 +1,50 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+}
+
+.dashboard-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.analytics-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.charts {
+    margin-top: 20px;
+}
+
+.recent-activities {
+    margin-top: 20px;
+}
+
+.dashboard-footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+}

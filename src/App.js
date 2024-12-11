@@ -9,6 +9,7 @@ import About from "./components/about/About";
 import RegistrationForm from "./components/forms/RegistrationForm";
 import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
 import Contact from "./components/forms/Contact";
+import AdminDashboard from "./components/admin-dashboard/AdminDashboard";
 
 function App() {
 
