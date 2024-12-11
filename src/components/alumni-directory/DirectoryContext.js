@@ -1,5 +1,6 @@
 import {createContext, useContext, useMemo, useState} from "react";
 import useFetch from "../../utils/api/useFetch";
+import {useFilterAlumni} from "../../utils/hooks/useFilterAlumni";
 
 const DirectoryContext = createContext();
 
@@ -15,33 +16,24 @@ export const DirectoryProvider = ({children}) => {
     });
 
 
-    const filteredAlumni = useMemo(() => {
-        return allAlumni.filter((data) => {
-            const isSessionMatched =
-                filters.selectedSession === "All" || filters.selectedSession === "" || data.batch === filters.selectedSession;
-            const isDeptMatched =
-                filters.selectedDepartment === "All" || filters.selectedDepartment === "" || data.majoredIn === filters.selectedDepartment;
-            const isNameMatched =
-                filters.searchQuery === "" ||
-                data.name.toLowerCase().includes(filters.searchQuery.toLowerCase());
-
-            return isSessionMatched && isDeptMatched && isNameMatched;
-        });
-    }, [allAlumni, filters]);
-
-
-    const onFilterChange = (field, value) => {
-        setFilters((prev) => ({...prev, [field]: value}));
-    };
-
-    
+    const filteredAlumni = useFilterAlumni(allAlumni, filters);
 
     return (
-        <DirectoryContext.Provider value={{filteredAlumni, filters, setFilters, loading, error , onFilterChange}}>
+        <DirectoryContext.Provider
+            value={{
+                filteredAlumni,
+                filters,
+                setFilters,
+                loading,
+                error,
+                onFilterChange: (field, value) =>
+                    setFilters((prev) => ({ ...prev, [field]: value })),
+            }}
+        >
             {children}
         </DirectoryContext.Provider>
     );
 
 };
 
-export const useDirectoryContext =() => useContext(DirectoryContext);
+export const useDirectoryContext = () => useContext(DirectoryContext);

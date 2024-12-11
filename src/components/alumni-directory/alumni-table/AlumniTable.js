@@ -1,7 +1,10 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import {useAlumniTableContext} from "./AlumniTableContext";
 
-const AlumniTable = ({ alumniData }) => {
+
+const AlumniTable = () => {
+    const {alumniDataOnCurrentPage} = useAlumniTableContext();
     return (
         <div className="alumni-directory">
             <h4 className="text-center mb-3">Alumni Directory</h4>
@@ -16,8 +19,8 @@ const AlumniTable = ({ alumniData }) => {
                 </tr>
                 </thead>
                 <tbody>
-                {alumniData.length > 0 ? (
-                    alumniData.map((alumni, index) => (
+                {alumniDataOnCurrentPage.length > 0 ? (
+                    alumniDataOnCurrentPage.map((alumni, index) => (
                         <tr key={index}>
                             <td>{alumni.name}</td>
                             <td>{alumni.batch}</td>
