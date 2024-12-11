@@ -2,6 +2,7 @@ import React from "react";
 import {Col, Pagination, Row} from "react-bootstrap";
 
 const PaginationControls = ({totalPages, currentPage, onPageChange}) => {
+
     const pageNumbers = Array.from({length: totalPages}, (_, i) => i + 1);
 
     return (

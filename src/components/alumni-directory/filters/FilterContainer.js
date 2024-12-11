@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
 import {Col, Row} from "react-bootstrap";
-import SearchBarFilters from "./SearchBarFilters";
-import DropdownFilters from "./DropdownFilters";
-import React, {useMemo} from "react";
+import SearchBarFilters from "../../../utils/SearchBarFilters";
+import DropdownFilters from "../../../utils/DropdownFilters";
+import React from "react";
+import {useDirectoryContext} from "../DirectoryContext";
 
 
-const FilterContainer = ({filters, setFilters}) => {
+const FilterContainer = () => {
+    const {filters, onFilterChange} = useDirectoryContext()
 
-    const {searchQuery, selectedSession, selectedDepartment, alumniState} = filters;
-    const onFilterChange = (field, value) => {
-        setFilters((prev) => ({...prev, [field]: value}));
-    };
+    const {searchQuery, selectedSession, selectedDepartment} = filters;
+
+
 
     const sessionOptions = [
         {value: "All", label: "All"},
@@ -36,7 +37,8 @@ const FilterContainer = ({filters, setFilters}) => {
                 <Col>
                     <SearchBarFilters
                         value={searchQuery}
-                        onChange={(val) => onFilterChange("searchQuery", val)}/>
+                        onChange={(val) => onFilterChange("searchQuery", val)}
+                    />
                 </Col>
             </Row>
 

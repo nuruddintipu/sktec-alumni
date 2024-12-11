@@ -10,6 +10,7 @@ import RegistrationForm from "./components/forms/RegistrationForm";
 import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
 import Contact from "./components/forms/Contact";
 import AdminDashboard from "./components/admin-dashboard/AdminDashboard";
+import {DirectoryProvider} from "./components/alumni-directory/DirectoryContext";
 
 function App() {
 
@@ -22,7 +23,11 @@ function App() {
                       <Route path="/" element={<Homepage />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/registration" element={<RegistrationForm />} />
-                      <Route path="/alumni-directory" element={<AlumniDirectory/>}/>
+                      <Route path="/alumni-directory" element={
+                          <DirectoryProvider>
+                              <AlumniDirectory/>
+                          </DirectoryProvider>}
+                      />
                       <Route path="/contact" element={<Contact/>}/>
                   </Routes>
               </div>

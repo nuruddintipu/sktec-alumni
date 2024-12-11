@@ -3,15 +3,17 @@ import {Col, Row} from "react-bootstrap";
 import AlumniTable from "./AlumniTable";
 import PaginationControls from "./PaginationControls";
 import PropTypes from "prop-types";
+import {useDirectoryContext} from "../DirectoryContext";
 
-const AlumniTableContainer = ({alumniData}) => {
+const AlumniTableContainer = () => {
+    const {filteredAlumni} = useDirectoryContext();
     const [currentPage, setCurrentPage] = useState(1);
 
     const rowsPerPage = 30;
 
 
-    const totalPages = Math.ceil(alumniData.length / rowsPerPage);
-    const currentAlumniData = alumniData.slice(
+    const totalPages = Math.ceil(filteredAlumni.length / rowsPerPage);
+    const currentAlumniData = filteredAlumni.slice(
         (currentPage - 1) * rowsPerPage,
         currentPage * rowsPerPage
     );
