@@ -7,7 +7,7 @@ import LoadingSpinner from "../../animations/LoadingSpinner";
 
 
 const AlumniDirectory = () => {
-    const {filteredAlumni, loading, error} = useDirectoryContext();
+    const {loading, error} = useDirectoryContext();
 
     if (loading || error) {
         return <LoadingSpinner />;

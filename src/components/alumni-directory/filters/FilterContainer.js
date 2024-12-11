@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import {Col, Row} from "react-bootstrap";
 import SearchBarFilters from "../../../utils/SearchBarFilters";
 import DropdownFilters from "../../../utils/DropdownFilters";
@@ -64,15 +63,6 @@ const FilterContainer = () => {
         </div>
     );
 
-};
-
-FilterContainer.propTypes = {
-    filters: PropTypes.shape({
-        searchQuery: PropTypes.string,
-        selectedSession: PropTypes.string,
-        selectedDepartment: PropTypes.string,
-    }).isRequired,
-    setFilters: PropTypes.func.isRequired,
 };
 
 export default FilterContainer;

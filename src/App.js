@@ -11,6 +11,7 @@ import AlumniDirectory from "./components/alumni-directory/AlumniDirectory";
 import Contact from "./components/forms/Contact";
 import AdminDashboard from "./components/admin-dashboard/AdminDashboard";
 import {DirectoryProvider} from "./components/alumni-directory/DirectoryContext";
+import DirectoryRoute from "./components/alumni-directory/DirectoryRoute";
 
 function App() {
 
@@ -23,11 +24,7 @@ function App() {
                       <Route path="/" element={<Homepage />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/registration" element={<RegistrationForm />} />
-                      <Route path="/alumni-directory" element={
-                          <DirectoryProvider>
-                              <AlumniDirectory/>
-                          </DirectoryProvider>}
-                      />
+                      <Route path="/alumni-directory" element={<DirectoryRoute />} />
                       <Route path="/contact" element={<Contact/>}/>
                   </Routes>
               </div>

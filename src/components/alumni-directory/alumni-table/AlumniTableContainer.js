@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import AlumniTable from "./AlumniTable";
 import PaginationControls from "./PaginationControls";
-import PropTypes from "prop-types";
 import {useDirectoryContext} from "../DirectoryContext";
 
 const AlumniTableContainer = () => {
@@ -32,11 +31,6 @@ const AlumniTableContainer = () => {
         </Row>
     );
 
-};
-
-AlumniTableContainer.propTypes = {
-    alumniData: PropTypes.array.isRequired,
-    rowsPerPage: PropTypes.number.isRequired,
 };
 
 export default AlumniTableContainer;
