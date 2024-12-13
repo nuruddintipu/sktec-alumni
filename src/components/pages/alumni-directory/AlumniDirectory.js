@@ -4,7 +4,7 @@ import FilterComponents from "../filter-components/FilterComponents";
 import AlumniTableContainer from "./alumni-table/AlumniTableContainer";
 import {useDirectoryContext} from "../../../context/DirectoryContext";
 import LoadingSpinner from "../../../animations/LoadingSpinner";
-import ToggleDisplay from "../../../utils/ToggleDisplay";
+import ToggleDisplay from "../../common/ToggleDisplay";
 
 
 const AlumniDirectory = () => {

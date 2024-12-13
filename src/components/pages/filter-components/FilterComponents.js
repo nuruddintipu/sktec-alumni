@@ -1,9 +1,9 @@
 import {Col, Row} from "react-bootstrap";
-import SearchBar from "../../../utils/SearchBar";
-import DropdownBar from "../../../utils/DropdownBar";
+import SearchBar from "../../common/SearchBar";
+import DropdownBar from "../../common/DropdownBar";
 import React from "react";
 import {useDirectoryContext} from "../../../context/DirectoryContext";
-import { sessionOptions, departmentOptions } from "../../../utils/dropdownOptions";
+import { sessionOptions, departmentOptions } from "../../common/dropdownOptions";
 
 const FilterComponents = () => {
     const {filters, onFilterChange} = useDirectoryContext()

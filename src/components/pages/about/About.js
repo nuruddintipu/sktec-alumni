@@ -1,24 +1,18 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import './about.css';
+import LandingSection from "../homepage/LandingSection";
+import {aboutText} from "./aboutText";
 
 
 function About() {
     return (
         <>
-            <section className="about-bg d-flex align-items-center">
-                <Container className="text-center text-light">
-                    <Row>
-                        <Col md={6} className="align-content-md-start">
-                            <h1 className="display-4 d-flex fw-bold">Mission</h1>
-                            <p className="lead">
-                                Connecting Sheikh Kamal Textile Engineering College graduates to foster lifelong
-                                relationships, support professional growth, and celebrate our shared achievements.
-                            </p>
-                        </Col>
-                    </Row>
-                </Container>
-            </section>
+            <LandingSection
+                title={aboutText.title}
+                body={aboutText.body}
+                className={"about-bg"}
+            />
             <section className="mt-4 mb-4">
                 <Container>
                     <Row>
