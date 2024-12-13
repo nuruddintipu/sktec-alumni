@@ -1,6 +1,6 @@
 import React from "react";
 import './homepage.css';
-import LandingSection from "./LandingSection";
+import LandingSection from "../../common/LandingSection";
 import {landingText} from "./homepageText";
 import {ContentSection} from "./ContentSection";
 
