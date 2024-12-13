@@ -5,6 +5,7 @@ import logoNavyBlue from '../../../assets/images/saa-logo.png';
 import logoWhite from '../../../assets/images/saa-logo-white.png';
 import './navbar.css';
 import {Link} from "react-router-dom";
+import routes from "../../../route-paths/routes";
 
 const NavigationBar = () => {
     // State for scrolling behavior
@@ -75,16 +76,16 @@ const NavigationBar = () => {
                 {/* Navbar links */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-dark">
-                        <Nav.Link as={Link} to="/" style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
-                        <Nav.Link as={Link} to="/about" style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
+                        <Nav.Link as={Link} to={routes.home} style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
+                        <Nav.Link as={Link} to={routes.about} style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
 
                         <NavDropdown
                             title='Alumni'
                             id="basic-nav-dropdown"
                             className={dropdownClass}
                         >
-                            <NavDropdown.Item as={Link} to="/alumni-directory">Alumni Directory</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/registration">Join Alumni</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={routes.alumniDirectory}>Alumni Directory</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={routes.registration}>Join Alumni</NavDropdown.Item>
                         </NavDropdown>
 
                     </Nav>

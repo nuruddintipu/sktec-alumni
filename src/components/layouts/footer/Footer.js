@@ -3,6 +3,7 @@ import SocialIcons from './SocialIcons';
 import {Col, Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom"; // Reuse the SocialIcons component
 import {Nav} from "react-bootstrap";
+import routes from "../../../route-paths/routes";
 function Footer() {
     const [isHovered, setIsHovered] = useState(false);
     return (
@@ -17,8 +18,8 @@ function Footer() {
 
                     {/* Link section */}
                     <Col md={4} className="text-center mb-3 mb-md-0">
-                        <Link to="/about" className="text-decoration-none text-light d-block mb-1">About</Link>
-                        <Link to="/contact" className="text-decoration-none text-light d-block mb-1">Contact</Link>
+                        <Link to={routes.about} className="text-decoration-none text-light d-block mb-1">About</Link>
+                        <Link to={routes.contact} className="text-decoration-none text-light d-block mb-1">Contact</Link>
                         {/*<Link to="/" className="text-decoration-none text-light d-block mb-1">Privacy Policy</Link>*/}
                     </Col>
 

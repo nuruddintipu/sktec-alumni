@@ -16,13 +16,15 @@ function JobExperienceForm() {
                     </Col>
                 </Row>
                 <Row className={'mt-4'}>
-                    <Form.Check
-                        className="mx-3"
-                        type="checkbox"
-                        label="I do not have any job."
-                        value="donotWork"
-                        name="workExp"
-                        style={{ fontSize: '16px' }} />
+                    <Col md={3}>
+                        <Form.Check
+                            className="mx-3"
+                            type="checkbox"
+                            label="I do not have any job."
+                            value="donotWork"
+                            name="workExp"
+                            style={{ fontSize: '16px' }} />
+                    </Col>
                 </Row>
             </Form.Group>
         </div>
