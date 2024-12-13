@@ -1,9 +1,9 @@
 import {Col, Row} from "react-bootstrap";
-import SearchBarFilters from "../../../utils/SearchBarFilters";
-import DropdownFilters from "../../../utils/DropdownFilters";
+import SearchBar from "../../../utils/SearchBar";
+import DropdownBar from "../../../utils/DropdownBar";
 import React from "react";
 import {useDirectoryContext} from "../../../context/DirectoryContext";
-import { sessionOptions, departmentOptions } from "./filterOptions";
+import { sessionOptions, departmentOptions } from "../../../utils/dropdownOptions";
 
 const FilterComponents = () => {
     const {filters, onFilterChange} = useDirectoryContext()
@@ -31,7 +31,7 @@ const FilterComponents = () => {
         <div>
             <Row className="mb-3">
                 <Col>
-                    <SearchBarFilters
+                    <SearchBar
                         placeholder={"By Name"}
                         value={searchQuery}
                         onChange={(val) => onFilterChange("searchQuery", val)}
@@ -42,7 +42,7 @@ const FilterComponents = () => {
             <Row className="mb-3">
                 {dropdownConfigs.map(({ value, options, field, placeholder }, index) => (
                     <Col md={6} key={index}>
-                        <DropdownFilters
+                        <DropdownBar
                             value={value}
                             options={options}
                             onChange={(val) => onFilterChange(field, val)}

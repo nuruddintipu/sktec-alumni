@@ -1,6 +1,6 @@
 import {Form} from "react-bootstrap";
 
-const SearchBarFilters = ({placeholder, value, onChange}) => {
+const SearchBar = ({placeholder, value, onChange}) => {
     return (
         <Form.Control
             type="text"
@@ -11,4 +11,4 @@ const SearchBarFilters = ({placeholder, value, onChange}) => {
     );
 };
 
-export default SearchBarFilters;
+export default SearchBar;

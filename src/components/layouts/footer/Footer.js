@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import SocialIcons from './SocialIcons';
 import {Col, Container, Row} from "react-bootstrap";
-import {Link} from "react-router-dom"; // Reuse the SocialIcons component
-import {Nav} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import routes from "../../../route-paths/routes";
 function Footer() {
     const [isHovered, setIsHovered] = useState(false);
@@ -32,7 +31,8 @@ function Footer() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col className="text-center mt-4">
+                    <Col className="text-center mt-4">.
+                        +---
                         <small >
                             © {new Date().getFullYear()} SKTEC Alumni Association. All rights reserved | Designed & Developed By
                             <a

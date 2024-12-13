@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
-import './registrationForm.css';
+import '../registration/registrationForm.css';
 
 function Contact() {
     return (
