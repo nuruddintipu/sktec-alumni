@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/sktec-alumni/static/css/main.145950d9.css",
-    "main.js": "/sktec-alumni/static/js/main.81d27435.js",
+    "main.css": "/sktec-alumni/static/css/main.1b8c13ab.css",
+    "main.js": "/sktec-alumni/static/js/main.744b32be.js",
     "static/media/bg-gate.jpg": "/sktec-alumni/static/media/bg-gate.4906071bf26a16819a49.jpg",
     "static/media/bg-wide.jpg": "/sktec-alumni/static/media/bg-wide.537b99a1b776ea479e8e.jpg",
     "static/media/saa-logo.png": "/sktec-alumni/static/media/saa-logo.8e4a5164297b99eb6bd0.png",
     "static/media/saa-logo-white.png": "/sktec-alumni/static/media/saa-logo-white.1556ec6fbd3ad5e03bfb.png",
     "index.html": "/sktec-alumni/index.html",
-    "main.145950d9.css.map": "/sktec-alumni/static/css/main.145950d9.css.map",
-    "main.81d27435.js.map": "/sktec-alumni/static/js/main.81d27435.js.map"
+    "main.1b8c13ab.css.map": "/sktec-alumni/static/css/main.1b8c13ab.css.map",
+    "main.744b32be.js.map": "/sktec-alumni/static/js/main.744b32be.js.map"
   },
   "entrypoints": [
-    "static/css/main.145950d9.css",
-    "static/js/main.81d27435.js"
+    "static/css/main.1b8c13ab.css",
+    "static/js/main.744b32be.js"
   ]
 }
