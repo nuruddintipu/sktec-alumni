@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import FilterComponents from "../filter-components/FilterComponents";
+import FilterComponents from "./filter-components/FilterComponents";
 import AlumniTableContainer from "./alumni-table/AlumniTableContainer";
 import {useDirectoryContext} from "../../../context/DirectoryContext";
 import LoadingSpinner from "../../../animations/LoadingSpinner";

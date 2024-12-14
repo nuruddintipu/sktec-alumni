@@ -19,12 +19,12 @@ const ButtonWithToggle = ({child, buttonText, ...rest}) => {
                         aria-expanded={open}
                     />
                 </Col>
+                <Collapse className={"mt-2"} in={open}>
+                    <Col md={12} id={"collapse-component"}>
+                        {child}
+                    </Col>
+                </Collapse>
             </Row>
-            <Collapse in={open}>
-                <div id={"collapse-component"}>
-                    {child}
-                </div>
-            </Collapse>
         </>
     );
 };
