@@ -7,7 +7,6 @@ const AlumniTable = () => {
     const {alumniDataOnCurrentPage} = useAlumniTableContext();
     return (
         <div className="alumni-directory">
-            <h4 className="text-center mb-3">Alumni Directory</h4>
             <Table striped bordered hover responsive>
                 <thead>
                 <tr>
