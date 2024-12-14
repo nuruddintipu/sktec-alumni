@@ -2,7 +2,6 @@ import React from "react";
 import './about.css';
 import LandingSection from "../../common/LandingSection";
 import {aboutText} from "./aboutText";
-import {AboutContentSection} from "./AboutContentSection";
 
 
 function About() {
@@ -13,7 +12,6 @@ function About() {
                 body={aboutText.body}
                 className={"about-bg"}
             />
-            <AboutContentSection />
         </>
     );
 }

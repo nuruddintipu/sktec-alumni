@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, Col, Container, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import GeneralInfoForm from "./GeneralInfoForm";
 import AcademicInfoForm from "./AcademicInfoForm";
 import JobExperienceForm from "./JobExperienceForm";
@@ -10,7 +10,6 @@ function RegistrationForm() {
         <>
             <Container mt={4} className="bg-transparent regForm zoomIn" >
                 <Row className="d-flex justify-content-center align-items-center h-100"
-
                 >
                     <Col>
                         <br />
@@ -29,20 +28,22 @@ function RegistrationForm() {
                                 <JobExperienceForm />
 
                                 {/* Buttons   */}
-                                <Row className={"d-flex justify-content-md-end"}>
-                                    <Col md={3} className={"d-flex justify-content-md-end"}>
+                                <Form.Group>
+                                    <Row className={"d-flex justify-content-md-end"}>
+                                        <Col md={3} className={"d-flex justify-content-md-end "}>
+                                            <Button
+                                                variant="secondary"
+                                                className={"mx-4"}
+                                            >
+                                                Reset All
+                                            </Button>
+                                        </Col>
+                                        <Col md={3} className={"d-flex justify-content-md-start"}>
 
-                                    </Col>
-                                    <Col md={6} className={"d-flex justify-content-md-end"}>
-                                        <Button
-                                            variant="secondary"
-                                            className={"mx-4"}
-                                        >
-                                            Reset All
-                                        </Button>
-                                        <Button variant="primary">Submit Form</Button>
-                                    </Col>
-                                </Row>
+                                            <Button variant="primary">Submit Form</Button>
+                                        </Col>
+                                    </Row>
+                                </Form.Group>
                             </Card.Body>
                         </Card>
                     </Col>

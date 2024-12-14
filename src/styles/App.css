@@ -1,7 +1,10 @@
 /* App.css */
-
 :root {
   --primary-color: #12293d;
+  --primary-color-rgb: 239, 35, 60;
+  --secondary-color: #F9F9F9;
+  --headline-font-color: #333;
+
 }
 
 html, body, #root {
@@ -16,7 +19,7 @@ html, body, #root {
 }
 
 .content {
-  flex: 1; /* This makes the content area take up available space */
+  flex: 1 !important; /* This makes the content area take up available space */
 }
 
 .footer {
@@ -68,3 +71,4 @@ html, body, #root {
 .zoomIn {
   animation: zoomIn 0.5s ease-in-out;
 }
+
