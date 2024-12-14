@@ -2,6 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook, faInstagram, faLinkedin, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {useState} from "react";
+import {Col} from "react-bootstrap";
 
 
 function SocialIcon({icon, size = "1x", style = {}, className = "", href = ""}) {
@@ -46,13 +47,19 @@ function SocialIcons() {
 
 
     return (
-        <div style={styles}>
-            <SocialIcon icon={faTwitter}/>
-            <SocialIcon href="https://www.facebook.com/sktecalumni"
-                        icon={faFacebook}/>
-            <SocialIcon icon={faInstagram}/>
-            <SocialIcon icon={faLinkedin}/>
-        </div>
+        <Col md={4} className="text-center text-md-end">
+            <h3 className="h4 mb-3">Follow Us</h3>
+            <div className="d-flex justify-content-center justify-content-md-end">
+                <div style={styles}>
+                    <SocialIcon icon={faTwitter}/>
+                    <SocialIcon href="https://www.facebook.com/sktecalumni"
+                                icon={faFacebook}/>
+                    <SocialIcon icon={faInstagram}/>
+                    <SocialIcon icon={faLinkedin}/>
+                </div>
+            </div>
+        </Col>
+
     );
 }
 
