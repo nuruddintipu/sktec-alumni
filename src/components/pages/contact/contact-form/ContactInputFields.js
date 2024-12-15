@@ -4,7 +4,7 @@ import React from "react";
 import contactFieldsConfigs from "./contactFieldsConfigs";
 import {MessageField} from "./MessageField";
 
-export const ContactInputFields = ({onInputChange, errors}) => {
+export const ContactInputFields = ({onInputChange, state}) => {
     return (
         <>
             {
@@ -21,21 +21,21 @@ export const ContactInputFields = ({onInputChange, errors}) => {
                             name={name}
                             placeholder={placeholder}
                             required={required}
-                            onChange={
-                                (value) => onInputChange(name, value)
-                            }
-                            className={
-                                errors.name ? 'is-invalid' : ''
-                            }
+                            onChange={(e) => onInputChange(e)}
+                            state={ state }
+
                         />
+
+                        {state.errors[name] && <p className="text-danger">{state.errors[name]}</p>}
 
                     </FormRowWrapper>
                 ))
             }
             <MessageField
                 onChange={
-                    (value) => onInputChange("message", value)
+                    (e) => onInputChange(e)
                 }
+                state={state}
 
             />
         </>

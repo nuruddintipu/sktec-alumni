@@ -1,35 +1,48 @@
-import {Col, Form, Row} from "react-bootstrap";
+import {Form, Row} from "react-bootstrap";
 import React from "react";
 import {SendMessageButton} from "./SendMessageButton";
 import {ContactInputFields} from "./ContactInputFields";
-import useContactForm from "../../../../hooks/useContactForm";
-import handleSubmit from "../../../../utils/handleSubmit";
+import FormContainer from "../../../common/FormContainer";
+import useFormReducer from "../../../../hooks/useFormReducer";
+
+
+const initialState = {
+    name: "",
+    email: "",
+    message: "",
+    subject: "",
+    errors: {},
+};
+const validationRules = {
+    name: (value) => value.trim() !== "" || "Name is required",
+    email: (value) => /\S+@\S+\.\S+/.test(value) || "Enter a valid email address",
+    subject: (value) => value.trim() !== "" || "Subject is required",
+    message: (value) => value.trim() !== "" || "Message is required",
+};
 
 const ContactFormSection = () => {
-    const {formData, errors, setErrors, handleInputChange} = useContactForm();
+    const {state, handleSubmit, handleChange} = useFormReducer(initialState, validationRules);
 
     return (
-        <Col md={7} style={{background: '#e8edf0', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)'}}>
-            <div className={"w-100 p-md-5 p-4"}>
-                <Form
-                    method="POST"
-                    id="contactForm"
-                    name="contactForm"
-                    className="contactForm"
-                    onSubmit={handleSubmit(formData, setErrors)}
-                    noValidate
-                >
-                    <Row>
-                        <ContactInputFields
-                            onInputChange={handleInputChange}
-                            errors={errors}
-                        />
-                        <SendMessageButton/>
+        <FormContainer md={7}>
+            <Form
+                method="POST"
+                id="contactForm"
+                name="contactForm"
+                className="contactForm"
+                onSubmit={handleSubmit}
+                noValidate
+            >
+                <Row>
+                    <ContactInputFields
+                        onInputChange={handleChange}
+                        state={state}
+                    />
+                    <SendMessageButton/>
 
-                    </Row>
-                </Form>
-            </div>
-        </Col>
+                </Row>
+            </Form>
+        </FormContainer>
     );
 };
 

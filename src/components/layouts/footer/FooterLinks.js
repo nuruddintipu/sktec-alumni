@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import routes from "../../../route-paths/routes";
 import {Col} from "react-bootstrap";
 import React from "react";
 import {linkItems} from "./FooterConfigs";

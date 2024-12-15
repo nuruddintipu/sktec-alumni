@@ -8,7 +8,8 @@ const InputField = ({
                         name,
                         placeholder ,
                         onChange = () => {},
-                        className
+                        className,
+                        state
 }) => {
 
     return (
@@ -18,8 +19,9 @@ const InputField = ({
                 type={type}
                 name={name}
                 placeholder={placeholder}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={(e) => onChange(e)}
                 className={className}
+                value={state[name]}
             />
         </Form.Group>
     );

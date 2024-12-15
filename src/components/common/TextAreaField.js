@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const TextAreaField = ({ controlId, label, name, placeholder, rows, onChange }) => {
+const TextAreaField = ({ controlId, label, name, placeholder, rows, onChange, classname, state }) => {
 
     return (
         <Form.Group controlId={controlId}>
@@ -11,7 +11,9 @@ const TextAreaField = ({ controlId, label, name, placeholder, rows, onChange }) 
                 name={name}
                 placeholder={placeholder}
                 rows={rows}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={(e) => onChange(e)}
+                className={classname}
+                value={state[name]}
             />
         </Form.Group>
     );

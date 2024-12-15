@@ -1,4 +1,4 @@
-import {createContext, useContext, useMemo, useState} from "react";
+import {createContext, useContext, useState} from "react";
 import useFetch from "../services/api/useFetch";
 import {useFilterAlumni} from "../hooks/useFilterAlumni";
 
