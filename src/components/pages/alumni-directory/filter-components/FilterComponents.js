@@ -2,18 +2,19 @@ import {Col, Row} from "react-bootstrap";
 import DropdownBar from "../../../common/DropdownBar";
 import React from "react";
 import {useDirectoryContext} from "../../../../context/DirectoryContext";
-import {sessionOptions, departmentOptions} from "../../../common/dropdownOptions";
+import {sessionOptions, includeAllDeptOptions, includeAllBatch} from "../../../common/dropdownOptions";
 import InputField from "../../../common/InputField";
 
 const FilterComponents = () => {
     const {filters, onFilterChange} = useDirectoryContext()
 
     const {selectedSession, selectedDepartment} = filters;
-
+    const departmentOptions = includeAllDeptOptions(true);
+    const batchOptions = includeAllBatch(true);
     const dropdownConfigs = [
         {
             value: selectedSession,
-            options: sessionOptions,
+            options: batchOptions,
             field: "selectedSession",
             placeholder: "By Batch",
         },

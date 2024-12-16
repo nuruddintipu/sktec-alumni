@@ -15,7 +15,6 @@ function RegistrationForm() {
                 heading={<RegPageHeading />}
                 content={
                     <>
-
                         <EligibilityForm />
                     </>
                 }

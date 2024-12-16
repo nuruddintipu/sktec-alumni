@@ -1,9 +1,9 @@
 import {Card} from "react-bootstrap";
 
-const NoticeCard = ( {noticeData} ) => {
+const NoticeCard = ( {noticeData, ...rest} ) => {
     return (
         <>
-            <Card style={{width: '80%'}} className={"mb-4"}>
+            <Card style={{width: '80%'}} className={"mb-4"} {...rest}>
                 <Card.Body>
                     <Card.Title>{noticeData.title}</Card.Title>
                     <Card.Subtitle>

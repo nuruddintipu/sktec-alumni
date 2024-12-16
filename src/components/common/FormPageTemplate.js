@@ -6,9 +6,9 @@ const FormPageTemplate = ({ heading, content }) => {
         <Container className={"mt-5 zoomIn"} style={{maxWidth: '60%'}}>
             { heading }
             <Row className={"justify-content-center"}>
-                <Col md={12}>
+                <Col md={12} className={"justify-content-center"}>
                     <div style={{width: '100%'}}>
-                        <Row className={"mb-5"}>
+                        <Row className={"mb-5 justify-content-center"}>
                             { content }
                         </Row>
                     </div>

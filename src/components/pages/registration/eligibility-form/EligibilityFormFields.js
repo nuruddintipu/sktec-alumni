@@ -3,8 +3,11 @@ import FormRowWrapper from "../../../common/FormRowWrapper";
 import InputField from "../../../common/InputField";
 import {Col, Row} from "react-bootstrap";
 import DropdownBar from "../../../common/DropdownBar";
+import React from "react";
 
-export const EligibilityFormFields = ({}) => {
+export const EligibilityFormFields = ({onChange, state}) => {
+
+    console.log("hi ", state['department']);
     return (
         <>
             <FormRowWrapper
@@ -21,18 +24,24 @@ export const EligibilityFormFields = ({}) => {
                             type={type}
                             name={name}
                             placeholder={placeholder}
+                            onChange={(e) => onChange(e)}
+                            state={ state }
                         />
                     ))
                 }
 
                 <Row className={"mb-3"}>
                     {
-                        eligibilityDropdownConfigs.map(({value, options, field, placeholder}, index) => (
-                            <Col md={6} key={index}>
+                        eligibilityDropdownConfigs.map(({ label, value, name, options, field, placeholder}, index) => (
+                            <Col md={6} key={index} className={"mt-3"}>
                                 <DropdownBar
-                                    value={value}
+                                    label={label}
+                                    value={state[name]}
+                                    name={name}
                                     options={options}
                                     placeholder={placeholder}
+                                    onChange={(e) => onChange(e)}
+                                    state={ state }
                                 />
                             </Col>
                         ))
