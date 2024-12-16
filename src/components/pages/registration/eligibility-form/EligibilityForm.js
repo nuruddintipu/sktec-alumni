@@ -5,25 +5,16 @@ import {EligibilityFormFields} from "./EligibilityFormFields";
 import {CheckEligibilityButton} from "./CheckEligibilityButton";
 import {eligibilityFormSidebarText} from "./eligibilityFieldConfigs";
 import useFormReducer from "../../../../hooks/useFormReducer";
+import {eligibilityValidationRules, initialState} from "./eligibilityConfigs";
 
-const initialState = {
-  butexId: "",
-  batch: "",
-  department: "",
-  errors: {}
-};
-const eligibilityValidationRules ={
-    butexId: (value) => value.trim() !== "" || "Id is required!",
-    batch: (value) => /\S+@\S+\.\S+/.test(value) || "Batch is required!",
-    department: (value) => value.trim() !== "" || "Department is required!",
-};
 
 
 function EligibilityForm() {
-    const {state, handleSubmit, handleChange} = useFormReducer(initialState, eligibilityValidationRules)
+    const {state, handleSubmit, handleChange} = useFormReducer(initialState, eligibilityValidationRules);
+
+
     return (
         <>
-
             <Row>
                 <FormContainer style={{background: 'var(--primary-color)'}}>
                     <p className={"h4"} style={{color: '#e8edf0'}} >{eligibilityFormSidebarText.heading}</p>

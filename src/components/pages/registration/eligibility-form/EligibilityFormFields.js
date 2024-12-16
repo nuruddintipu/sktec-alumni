@@ -16,17 +16,20 @@ export const EligibilityFormFields = ({onChange, state}) => {
             >
                 {
                     eligibilityFieldConfigs.map(({controlId, label, type, name, placeholder, required}, index) => (
+                        <>
+                            <InputField
+                                key={index}
+                                controlId={controlId}
+                                label={label}
+                                type={type}
+                                name={name}
+                                placeholder={placeholder}
+                                onChange={(e) => onChange(e)}
+                                state={ state }
+                            />
 
-                        <InputField
-                            key={index}
-                            controlId={controlId}
-                            label={label}
-                            type={type}
-                            name={name}
-                            placeholder={placeholder}
-                            onChange={(e) => onChange(e)}
-                            state={ state }
-                        />
+                            {state.errors[name] && <p className="text-danger">{state.errors[name]}</p>}
+                        </>
                     ))
                 }
 
@@ -43,6 +46,8 @@ export const EligibilityFormFields = ({onChange, state}) => {
                                     onChange={(e) => onChange(e)}
                                     state={ state }
                                 />
+
+                                {state.errors[name] && <p className="text-danger">{state.errors[name]}</p>}
                             </Col>
                         ))
                     }
