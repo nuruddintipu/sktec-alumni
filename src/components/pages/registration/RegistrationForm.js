@@ -4,28 +4,40 @@ import GeneralInfoForm from "./GeneralInfoForm";
 import AcademicInfoForm from "./AcademicInfoForm";
 import JobExperienceForm from "./JobExperienceForm";
 import './registrationForm.css';
+import FormPageTemplate from "../../common/FormPageTemplate";
+import RegPageHeading from "./RegPageHeading";
+import EligibilityForm from "./eligibility-form/EligibilityForm";
 
 function RegistrationForm() {
     return (
         <>
-            <Container mt={4} className="bg-transparent regForm zoomIn" >
+            <FormPageTemplate
+                heading={<RegPageHeading />}
+                content={
+                    <>
+
+                        <EligibilityForm />
+                    </>
+                }
+            />
+            <Container mt={4} className="bg-transparent regForm zoomIn">
                 <Row className="d-flex justify-content-center align-items-center h-100"
                 >
                     <Col>
-                        <br />
-                        <Card className="my-4"  style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)' }}>
+                        <br/>
+                        <Card className="my-4" style={{boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)'}}>
                             <Card.Body className="my-4 mx-3">
                                 <Card.Title>ALUMNI REGISTRATION FORM</Card.Title>
-                                <br />
+                                <br/>
 
                                 {/* General Information Section */}
-                                <GeneralInfoForm />
+                                <GeneralInfoForm/>
 
                                 {/* Academic Information Section */}
-                                <AcademicInfoForm />
+                                <AcademicInfoForm/>
 
                                 {/* job experience Form Sections*/}
-                                <JobExperienceForm />
+                                <JobExperienceForm/>
 
                                 {/* Buttons   */}
                                 <Form.Group>

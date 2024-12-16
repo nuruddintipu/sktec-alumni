@@ -1,11 +1,13 @@
 import React from "react";
-import { Col } from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 const FormRowWrapper = ({ children, md, className }) => {
     return (
-        <Col md={md} className={className}>
-            {children}
-        </Col>
+        <Row>
+            <Col md={md} className={className}>
+                {children}
+            </Col>
+        </Row>
     );
 };
 
