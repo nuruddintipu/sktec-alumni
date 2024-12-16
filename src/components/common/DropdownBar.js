@@ -1,11 +1,12 @@
 import {Form} from "react-bootstrap";
 
-const DropdownBar = ({ label,name, value, options, onChange=()=>{}, placeholder,  ...rest}) => {
+const DropdownBar = ({ label, name, value, options, onChange=()=>{}, placeholder, style={}, className="", ...rest}) => {
     return (
         <>
             <Form.Label>{label}</Form.Label>
             <Form.Select
-                style={{ color: "grey" }}
+                className={className}
+                style={{ color: "grey", ...style}}
                 value={value || ""}
                 name={name}
                 onChange={(e) => {

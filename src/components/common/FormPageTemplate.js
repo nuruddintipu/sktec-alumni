@@ -1,17 +1,15 @@
 import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
 
-const FormPageTemplate = ({ heading, content }) => {
+const FormPageTemplate = ({heading, content, maxWidth = '80%', containerStyle, ...rest}) => {
     return (
-        <Container className={"mt-5 zoomIn"} style={{maxWidth: '60%'}}>
-            { heading }
+        <Container style={{maxWidth, ...containerStyle}} {...rest}>
+            {heading}
             <Row className={"justify-content-center"}>
                 <Col md={12} className={"justify-content-center"}>
-                    <div style={{width: '100%'}}>
-                        <Row className={"mb-5 justify-content-center"}>
-                            { content }
-                        </Row>
-                    </div>
+                    <Row className={"mb-5 justify-content-center"}>
+                        {content}
+                    </Row>
                 </Col>
             </Row>
         </Container>

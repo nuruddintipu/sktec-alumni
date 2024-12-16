@@ -57,9 +57,8 @@ const useFormReducer = (initialState, validationRules) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log('Form is submitted', state);
             resetForm();
-            alert("Message Sent");
+            alert("Successfull!");
         }
     };
 

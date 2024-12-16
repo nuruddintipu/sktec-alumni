@@ -1,13 +1,31 @@
 import React from "react";
-import {Col, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
-const SectionHeading = ({heading, className, style}) => {
+const SectionHeading = ({
+                            heading,
+                            textClassName = "",
+                            textStyle = {},
+                            containerClass = "",
+                            containerStyle = {},
+                            ...rest
+                        }) => {
     return (
-        <Row className={"justify-content-center"}>
-            <Col md={12} className={"text-center mb-2"}>
-                <h1 className={`mt-4 ${className}`} style={{color: 'var(--primary-color)', ...style}}>{heading}</h1>
-            </Col>
-        </Row>
+        <Container
+            className={`justify-content-center ${containerClass}`.trim()}
+            style={containerStyle}
+            {...rest}
+        >
+            <Row>
+                <Col className={"text-center justify-content-center align-items-center"}>
+                    <h1
+                        className={`mt-4 ${textClassName}`.trim()}
+                        style={{color: 'var(--primary-color)', ...textStyle}}
+                    >
+                        {heading}
+                    </h1>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

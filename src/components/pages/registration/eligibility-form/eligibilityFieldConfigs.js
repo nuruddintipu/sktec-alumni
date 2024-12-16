@@ -33,7 +33,7 @@ export const eligibilityDropdownConfigs = [
     },
 ];
 
-export const eligibilityFormSidebarText = {
-    heading: "Are you a SKTEC Graduate?",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+export const eligibilityTopBarText = {
+    heading: "Eligibility Check",
+    body: "Please fill in the required fields to check your eligibility."
 }
