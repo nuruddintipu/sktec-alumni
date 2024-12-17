@@ -9,7 +9,7 @@ const InputField = ({
                         placeholder ,
                         onChange = () => {},
                         className,
-                        state={}
+    value
 }) => {
 
     return (
@@ -21,7 +21,7 @@ const InputField = ({
                 placeholder={placeholder}
                 onChange={(e) => onChange(e)}
                 className={className}
-                value={state[name] || ""}
+                value={value || ""}
             />
         </Form.Group>
     );

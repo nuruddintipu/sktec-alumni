@@ -1,25 +1,24 @@
 import {Col, Row} from "react-bootstrap";
 import DropdownBar from "../../../common/DropdownBar";
 import React from "react";
-import {useDirectoryContext} from "../../../../context/DirectoryContext";
-import {sessionOptions, includeAllDeptOptions, includeAllBatch} from "../../../common/dropdownOptions";
+import {includeAllDeptOptions, includeAllBatch} from "../../../common/dropdownOptions";
 import InputField from "../../../common/InputField";
 
-const FilterComponents = () => {
-    const {filters, onFilterChange} = useDirectoryContext()
+const FilterComponents = ({state, handleChange}) => {
 
-    const {selectedSession, selectedDepartment} = filters;
     const departmentOptions = includeAllDeptOptions(true);
     const batchOptions = includeAllBatch(true);
     const dropdownConfigs = [
         {
-            value: selectedSession,
+            name: "batch",
+            value: "",
             options: batchOptions,
             field: "selectedSession",
             placeholder: "By Batch",
         },
         {
-            value: selectedDepartment,
+            name: "department",
+            value: "",
             options: departmentOptions,
             field: "selectedDepartment",
             placeholder: "By Department",
@@ -33,17 +32,20 @@ const FilterComponents = () => {
                 <Col md={4}>
                     <InputField
                         placeholder={"By Name"}
-                        onChange={(val) => onFilterChange("searchQuery", val)}
+                        onChange={(e) => handleChange(e)}
+                        name={"name"}
+                        value={state.filters.name}
                     />
                 </Col>
                 {
-                    dropdownConfigs.map(({value, options, field, placeholder}, index) => (
+                    dropdownConfigs.map(({name, value, options, field, placeholder}, index) => (
                         <Col md={4} key={index}>
                             <DropdownBar
-                                value={value}
+                                value={state.filters[name]}
                                 options={options}
-                                onChange={(val) => onFilterChange(field, val)}
+                                onChange={(e) => handleChange(e)}
                                 placeholder={placeholder}
+                                name={name}
                             />
                         </Col>
                     ))

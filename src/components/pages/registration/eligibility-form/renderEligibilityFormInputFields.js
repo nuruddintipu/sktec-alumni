@@ -16,7 +16,7 @@ export const renderInputFields = ({state, onChange}) =>
                 name={name}
                 placeholder={placeholder}
                 onChange={(e) => onChange(e)}
-                state={state}
+                value={state[name]}
             />
             {state.errors[name] && <FieldError error={state.errors[name]}/>}
         </React.Fragment>

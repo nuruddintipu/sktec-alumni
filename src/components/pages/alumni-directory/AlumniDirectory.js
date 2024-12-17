@@ -1,14 +1,20 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import FilterComponents from "./filter-components/FilterComponents";
 import AlumniTableContainer from "./alumni-table/AlumniTableContainer";
-import {useDirectoryContext} from "../../../context/DirectoryContext";
 import LoadingSpinner from "../../../animations/LoadingSpinner";
 import ButtonWithToggle from "../../common/button/ButtonWithToggle";
+import useFetch from "../../../services/api/useFetch";
+import useAlumniReducer from "./useAlumniReducer";
+import {initialState} from "./alumniDirectoryConfig";
 
 
 const AlumniDirectory = () => {
-    const {loading, error} = useDirectoryContext();
+    const apiUrl = "https://7347c502-f63c-47d0-97fc-aec36d330913.mock.pstmn.io/alumni-data";
+    const {data: allAlumni, loading, error} = useFetch(apiUrl);
+
+    const {state, handleChange} = useAlumniReducer(initialState, allAlumni);
+
 
     if (loading || error) {
         return <LoadingSpinner/>;
@@ -19,9 +25,9 @@ const AlumniDirectory = () => {
             <br/>
             <ButtonWithToggle
                 buttonText={"Filter"}
-                child={<FilterComponents/>}
+                child={<FilterComponents state={state} handleChange={(e)=>handleChange(e)}/>}
             />
-            <AlumniTableContainer/>
+            <AlumniTableContainer data={state.filteredData}/>
         </Container>
     );
 };

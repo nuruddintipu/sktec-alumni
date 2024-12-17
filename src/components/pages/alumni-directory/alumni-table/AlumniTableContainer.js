@@ -4,12 +4,12 @@ import AlumniTable from "./AlumniTable";
 import PaginationControls from "./pagination/PaginationControls";
 import {AlumniTableDataProvider} from "../../../../context/AlumniTableContext";
 
-const AlumniTableContainer = () => {
+const AlumniTableContainer = ({data}) => {
     return (
         <Row>
             <Col>
                 <AlumniTableDataProvider>
-                    <AlumniTable />
+                    <AlumniTable data={data} />
                     <PaginationControls />
                 </AlumniTableDataProvider>
             </Col>
