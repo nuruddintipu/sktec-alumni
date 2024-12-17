@@ -5,10 +5,10 @@ import './styles/App.css';
 import RegistrationForm from "./components/pages/registration/RegistrationForm";
 import Contact from "./components/pages/contact/Contact";
 import About from "./components/pages/about/About";
-import DirectoryRoute from "./components/pages/alumni-directory/DirectoryRoute";
 import routes from "./route-paths/routes";
 import MainLayout from "./components/layouts/MainLayout";
 import MinimalLayout from "./components/layouts/MinimalLayout";
+import AlumniDirectory from "./components/pages/alumni-directory/AlumniDirectory";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                     <Route element={<MainLayout/>}>
                         <Route path={routes.home} element={<Homepage/>}/>
                         <Route path={routes.about} element={<About/>}/>
-                        <Route path={routes.alumniDirectory} element={<DirectoryRoute/>}/>
+                        <Route path={routes.alumniDirectory} element={<AlumniDirectory/>}/>
                         <Route path={routes.contact} element={<Contact/>}/>
                     </Route>
                     <Route element={<MinimalLayout/>}>

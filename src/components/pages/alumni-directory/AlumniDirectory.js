@@ -1,12 +1,12 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import FilterComponents from "./filter-components/FilterComponents";
-import AlumniTableContainer from "./alumni-table/AlumniTableContainer";
 import LoadingSpinner from "../../../animations/LoadingSpinner";
 import ButtonWithToggle from "../../common/button/ButtonWithToggle";
 import useFetch from "../../../services/api/useFetch";
 import useAlumniReducer from "./useAlumniReducer";
-import {initialState} from "./alumniDirectoryConfig";
+import AlumniTable from "./alumni-table/AlumniTable";
+import {initialState} from "./alumniReducer";
 
 
 const AlumniDirectory = () => {
@@ -17,7 +17,7 @@ const AlumniDirectory = () => {
 
 
     if (loading || error) {
-        return <LoadingSpinner/>;
+        return <LoadingSpinner loading={loading} error={error}/>;
     }
 
     return (
@@ -27,7 +27,7 @@ const AlumniDirectory = () => {
                 buttonText={"Filter"}
                 child={<FilterComponents state={state} handleChange={(e)=>handleChange(e)}/>}
             />
-            <AlumniTableContainer data={state.filteredData}/>
+            <AlumniTable data={state.data}/>
         </Container>
     );
 };

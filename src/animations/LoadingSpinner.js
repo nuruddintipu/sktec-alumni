@@ -1,9 +1,6 @@
 import {Col, Container, Row, Spinner} from "react-bootstrap";
 import React from "react";
-import {useDirectoryContext} from "../context/DirectoryContext";
-
-const LoadingSpinner = () => {
-    const {loading, error} = useDirectoryContext();
+const LoadingSpinner = ({loading, error}) => {
 
     if (loading) {
         return (
