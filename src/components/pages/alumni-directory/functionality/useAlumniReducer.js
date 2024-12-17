@@ -1,7 +1,7 @@
 import {useEffect, useReducer} from "react";
 import filteredAlumni from "./alumniFilterUtils";
 import alumniReducer from "./alumniReducer";
-import {getTotalPages, paginateData} from "./functionality/pagination/paginationUtils";
+import {getTotalPages, paginateData} from "./pagination/paginationUtils";
 
 const useAlumniReducer = (initialState, allAlumni) => {
 

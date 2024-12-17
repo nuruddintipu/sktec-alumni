@@ -4,9 +4,9 @@ import FilterComponents from "./filter-components/FilterComponents";
 import LoadingSpinner from "../../../animations/LoadingSpinner";
 import ButtonWithToggle from "../../common/button/ButtonWithToggle";
 import useFetch from "../../../services/api/useFetch";
-import useAlumniReducer from "./useAlumniReducer";
+import useAlumniReducer from "./functionality/useAlumniReducer";
 import AlumniTable from "./alumni-table/AlumniTable";
-import {initialState} from "./alumniReducer";
+import {initialState} from "./functionality/alumniReducer";
 import PaginationComponent from "./functionality/pagination/Pagination";
 
 
