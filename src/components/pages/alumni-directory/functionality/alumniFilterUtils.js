@@ -5,7 +5,7 @@ const filteredAlumni = (alumniData, filters) => {
     return alumniData.filter((data) => {
         return (
             isMatched(data.batch, filters.batch) &&
-            isMatched(data.majoredIn, filters.department) &&
+            isMatched(data.department, filters.department) &&
             (filters.name === "" ||
                 data.name.toLowerCase().includes(filters.name.toLowerCase()))
         );

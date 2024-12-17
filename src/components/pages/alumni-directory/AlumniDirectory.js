@@ -8,18 +8,21 @@ import useAlumniReducer from "./functionality/useAlumniReducer";
 import AlumniTable from "./alumni-table/AlumniTable";
 import {initialState} from "./functionality/alumniReducer";
 import PaginationComponent from "./functionality/pagination/Pagination";
+import {exampleAlumni} from "../../../utils/exampleAlumni";
 
 
 const AlumniDirectory = () => {
-    const apiUrl = "https://7347c502-f63c-47d0-97fc-aec36d330913.mock.pstmn.io/alumni-data";
-    const {data: allAlumni, loading, error} = useFetch(apiUrl);
+//     const apiUrl = "https://7347c502-f63c-47d0-97fc-aec36d330913.mock.pstmn.io/alumni-data";
+//     const {data: allAlumni, loading, error} = useFetch(apiUrl);
+
+    const allAlumni = exampleAlumni;
 
     const {state,handlePaginationClick, handleChange} = useAlumniReducer(initialState, allAlumni);
 
-
-    if (loading || error) {
-        return <LoadingSpinner loading={loading} error={error}/>;
-    }
+    //
+    // if (loading || error) {
+    //     return <LoadingSpinner loading={loading} error={error}/>;
+    // }
 
     return (
         <Container>

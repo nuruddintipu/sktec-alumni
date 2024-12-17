@@ -8,7 +8,7 @@ const AlumniTable = ({data, ...tableCustomizationRules}) => {
     const heading = {
         name: "Name",
         batch: "Batch",
-        majoredIn: "Department",
+        department: "Department",
         currentJob: "Current Job",
         contact: "Contact"
     };
