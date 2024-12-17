@@ -7,7 +7,7 @@ const NoticeSection = ({heading, notices, ...rest}) => {
 
     return (
         <>
-            <SectionHeading heading={heading} className={"text-start"} {...rest}/>
+            <SectionHeading heading={heading} className={"text-start "} textClassName={"landing-text"} {...rest}/>
             {notices.map((noticeData, index) => (
                 <NoticeCard
                     key={index}

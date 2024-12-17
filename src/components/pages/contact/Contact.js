@@ -9,7 +9,7 @@ function Contact() {
     return (
         <FormPageTemplate
             heading={
-                <SectionHeading heading={"Contact Form"}/>
+                <SectionHeading heading={"Contact Form"} containerClass={"d-flex"}/>
             }
             content={
                 <>

@@ -14,7 +14,9 @@ export const MessageField = ({ onChange,state }) => {
               state={state}
               onChange={onChange}
           />
-          {state.errors.message && <p className={"text-danger"}>{state.errors.message}</p>}
+          <p className={`text-danger ${state.errors.message ? "" : "invisible"}`}  style={{ minHeight: "1.5rem" }}>{state.errors.message}</p>
+
+
       </FormRowWrapper>
   );
 };

@@ -22,11 +22,10 @@ export const ContactInputFields = ({onInputChange, state}) => {
                             placeholder={placeholder}
                             required={required}
                             onChange={(e) => onInputChange(e)}
-                            state={ state }
-
+                            state={state}
                         />
+                        <p className={`text-danger ${state.errors[name] ? "" : "invisible"}`}  style={{ minHeight: "1.5rem" }}>{state.errors[name]}</p>
 
-                        {state.errors[name] && <p className="text-danger">{state.errors[name]}</p>}
 
                     </FormRowWrapper>
                 ))

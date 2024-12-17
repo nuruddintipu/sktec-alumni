@@ -8,7 +8,7 @@ import {RegFormHeading} from "./RegFormTexts";
 
 
 function RegistrationForm({
-                              heading = <SectionHeading heading={RegFormHeading} />,
+                              heading = <SectionHeading heading={RegFormHeading} containerClass={"d-flex"} />,
                               content = <EligibilityForm />
                           }) {
 

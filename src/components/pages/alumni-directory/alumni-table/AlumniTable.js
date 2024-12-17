@@ -1,8 +1,8 @@
 import React from "react";
 import {Table} from "react-bootstrap";
-import RenderTableHeadingRow from "./RenderTableHeadingRow";
-import RenderTableRow from "./RenderTableRow";
-import RenderEmptyRow from "./RenderEmptyRow";
+import RenderTableHeadingRow from "../../../common/RenderTableHeadingRow";
+import RenderTableRow from "../../../common/RenderTableRow";
+import RenderEmptyRow from "../../../common/RenderEmptyRow";
 
 const AlumniTable = ({data, ...tableCustomizationRules}) => {
     const heading = {

@@ -10,22 +10,18 @@ const SectionHeading = ({
                             ...rest
                         }) => {
     return (
-        <Container
-            className={containerClass}
-            style={containerStyle}
-            {...rest}
-        >
-            <Row>
-                <Col className={"text-center justify-content-center align-items-center"}>
-                    <h1
-                        className={`mt-4 ${textClassName}`.trim()}
-                        style={{color: 'var(--primary-color)', ...textStyle}}
-                    >
-                        {heading}
-                    </h1>
-                </Col>
-            </Row>
-        </Container>
+        <Row>
+            <Col className={`justify-content-center align-items-center ${containerClass}`}
+                style={containerStyle}
+            >
+                <h1
+                    className={`mt-4 ${textClassName}`.trim()}
+                    style={{color: 'var(--primary-color)', ...textStyle}}
+                >
+                    {heading}
+                </h1>
+            </Col>
+        </Row>
     );
 };
 

@@ -7,7 +7,7 @@ import useFetch from "../../../services/api/useFetch";
 import useAlumniReducer from "./functionality/useAlumniReducer";
 import AlumniTable from "./alumni-table/AlumniTable";
 import {initialState} from "./functionality/alumniReducer";
-import PaginationComponent from "./functionality/pagination/Pagination";
+import PaginationComponent from "../../common/pagination/Pagination";
 import {exampleAlumni} from "../../../utils/exampleAlumni";
 
 
