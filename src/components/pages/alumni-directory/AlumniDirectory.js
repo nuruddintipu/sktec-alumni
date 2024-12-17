@@ -7,13 +7,14 @@ import useFetch from "../../../services/api/useFetch";
 import useAlumniReducer from "./useAlumniReducer";
 import AlumniTable from "./alumni-table/AlumniTable";
 import {initialState} from "./alumniReducer";
+import PaginationComponent from "./functionality/pagination/Pagination";
 
 
 const AlumniDirectory = () => {
     const apiUrl = "https://7347c502-f63c-47d0-97fc-aec36d330913.mock.pstmn.io/alumni-data";
     const {data: allAlumni, loading, error} = useFetch(apiUrl);
 
-    const {state, handleChange} = useAlumniReducer(initialState, allAlumni);
+    const {state,handlePaginationClick, handleChange} = useAlumniReducer(initialState, allAlumni);
 
 
     if (loading || error) {
@@ -28,6 +29,11 @@ const AlumniDirectory = () => {
                 child={<FilterComponents state={state} handleChange={(e)=>handleChange(e)}/>}
             />
             <AlumniTable data={state.data}/>
+            <PaginationComponent
+                currentPage={state.pagination.currentPage}
+                totalPages={state.pagination.totalPages}
+                onPageChange={handlePaginationClick}
+            />
         </Container>
     );
 };

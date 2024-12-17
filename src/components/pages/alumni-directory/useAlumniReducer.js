@@ -1,6 +1,7 @@
 import {useEffect, useReducer} from "react";
 import filteredAlumni from "./alumniFilterUtils";
 import alumniReducer from "./alumniReducer";
+import {getTotalPages, paginateData} from "./functionality/pagination/paginationUtils";
 
 const useAlumniReducer = (initialState, allAlumni) => {
 
@@ -14,19 +15,27 @@ const useAlumniReducer = (initialState, allAlumni) => {
         dispatch({type: "SET_FILTER", payload: {field: name, value: value}});
     };
 
+    const handlePaginationClick = (value) => {
+        console.log("Current Page: ", value);
+        dispatch({type: "SET_PAGE", payload: {field: "currentPage", value: value}});
+    };
+
     useEffect(() => {
         if (allAlumni) {
             const filteredData = filteredAlumni(allAlumni, state.filters);
-            dispatch({ type: "SET_DATA", payload: filteredData });
+            const paginatedData = paginateData(filteredData, state.pagination.currentPage, 5);
+            dispatch({ type: "SET_DATA", payload: paginatedData });
+            const totalPages = getTotalPages(filteredData.length, 5);
+            dispatch({type: "SET_PAGE", payload: {field: 'totalPages', value: totalPages }})
         }
     }, [allAlumni, state.filters]);
 
     useEffect(() => {
         console.log("Updated state after filter change:", state);
-    }, [state.filteredData]);
+    }, [state]);
 
 
-    return {state, alumniReducer, handleChange};
+    return {state, handlePaginationClick, handleChange};
 
 
 };

@@ -12,8 +12,6 @@ export const initialState = {
     },
     data: [],
     filteredData: [],
-    loading: false,
-    error: null
 }
 
 
@@ -23,6 +21,7 @@ const alumniReducer = (state, action) => {
             return {
                 ...state,
                 filters: {...state.filters, [action.payload.field]: action.payload.value},
+                pagination: {...state.pagination, currentPage: 1}
             };
         case "SET_PAGE":
             return {
@@ -35,16 +34,6 @@ const alumniReducer = (state, action) => {
                 data: action.payload,
                 filteredData: action.payload,
                 loading: false
-            };
-        case "SET_LOADING":
-            return {
-                ...state,
-                loading: true,
-            };
-        case "SET_ERROR":
-            return {
-                ...state,
-                error: action.payload, loading: false
             };
         case 'reset':
             return action.initialState;
