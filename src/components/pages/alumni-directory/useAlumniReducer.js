@@ -17,7 +17,6 @@ const useAlumniReducer = (initialState, allAlumni) => {
     };
 
     const handlePaginationClick = (value) => {
-        console.log("Current Page: ", value);
         dispatch({type: "SET_PAGE", payload: {field: "currentPage", value: value}});
     };
 
@@ -39,9 +38,6 @@ const useAlumniReducer = (initialState, allAlumni) => {
         }
     }, [state.pagination.currentPage]);
 
-    useEffect(() => {
-        console.log("Updated state after filter change:", state);
-    }, [state]);
 
 
     return {state, handlePaginationClick, handleChange};

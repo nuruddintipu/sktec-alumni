@@ -1,38 +1,28 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import {Table} from "react-bootstrap";
+import RenderTableHeadingRow from "./RenderTableHeadingRow";
+import RenderTableRow from "./RenderTableRow";
+import RenderEmptyRow from "./RenderEmptyRow";
+
+const AlumniTable = ({data, ...tableCustomizationRules}) => {
+    const heading = {
+        name: "Name",
+        batch: "Batch",
+        majoredIn: "Department",
+        currentJob: "Current Job",
+        contact: "Contact"
+    };
 
 
-const AlumniTable = ({data}) => {
     return (
         <div className="alumni-directory">
-            <Table striped bordered hover responsive>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Batch</th>
-                    <th>Majored In</th>
-                    <th>Current Job</th>
-                    <th>Contact</th>
-                </tr>
-                </thead>
+            <Table striped bordered hover responsive {...tableCustomizationRules}>
+                <RenderTableHeadingRow heading={heading}/>
+
                 <tbody>
-                {data.length > 0 ? (
-                    data.map((alumni, index) => (
-                        <tr key={index}>
-                            <td>{alumni.name}</td>
-                            <td>{alumni.batch}</td>
-                            <td>{alumni.majoredIn}</td>
-                            <td>{alumni.currentJob}</td>
-                            <td>{alumni.contact}</td>
-                        </tr>
-                    ))
-                ) : (
-                    <tr>
-                        <td colSpan="5" className="text-center">
-                            No alumni data available.
-                        </td>
-                    </tr>
-                )}
+
+                {data.length > 0 ? <RenderTableRow data={data} heading={heading}/> : <RenderEmptyRow />}
+
                 </tbody>
             </Table>
         </div>

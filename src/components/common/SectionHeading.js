@@ -11,7 +11,7 @@ const SectionHeading = ({
                         }) => {
     return (
         <Container
-            className={`justify-content-center ${containerClass}`.trim()}
+            className={containerClass}
             style={containerStyle}
             {...rest}
         >

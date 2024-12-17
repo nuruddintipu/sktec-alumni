@@ -30,6 +30,7 @@ const AlumniDirectory = () => {
             />
             <AlumniTable data={state.data}/>
             <PaginationComponent
+                labels={{ first: "<<", prev: "<", next: ">", last: ">>" }}
                 currentPage={state.pagination.currentPage}
                 totalPages={state.pagination.totalPages}
                 onPageChange={handlePaginationClick}
