@@ -13,6 +13,7 @@ const useAlumniReducer = (initialState, allAlumni) => {
         const {name, value} = e.target;
 
         dispatch({type: "SET_FILTER", payload: {field: name, value: value}});
+        dispatch({type: "SET_PAGE", payload: {field: "currentPage", value: 1}});
     };
 
     const handlePaginationClick = (value) => {
@@ -29,6 +30,14 @@ const useAlumniReducer = (initialState, allAlumni) => {
             dispatch({type: "SET_PAGE", payload: {field: 'totalPages', value: totalPages }})
         }
     }, [allAlumni, state.filters]);
+
+    useEffect(() => {
+        if (allAlumni) {
+            const filteredData = filteredAlumni(allAlumni, state.filters);
+            const paginatedData = paginateData(filteredData, state.pagination.currentPage, 5);
+            dispatch({type: "SET_DATA", payload: paginatedData});
+        }
+    }, [state.pagination.currentPage]);
 
     useEffect(() => {
         console.log("Updated state after filter change:", state);
