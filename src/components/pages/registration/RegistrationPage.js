@@ -1,5 +1,5 @@
 import React from "react";
-import './registrationForm.css';
+import './styles/registrationForm.css';
 import FormPageTemplate from "../../common/FormPageTemplate";
 import EligibilityForm from "./eligibility-form/EligibilityForm";
 import SectionHeading from "../../common/SectionHeading";
@@ -7,7 +7,7 @@ import {RegFormHeading} from "./RegFormTexts";
 
 
 
-function RegistrationForm({
+function RegistrationPage({
                               heading = <SectionHeading heading={RegFormHeading} containerClass={"d-flex"} />,
                               content = <EligibilityForm />
                           }) {
@@ -23,4 +23,4 @@ function RegistrationForm({
     );
 }
 
-export default RegistrationForm;
+export default RegistrationPage;

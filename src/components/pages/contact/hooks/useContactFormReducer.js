@@ -38,7 +38,7 @@ const formReducer = (state, action) => {
 };
 
 
-const useFormReducer = (initialState, validationRules) => {
+const useContactFormReducer = (initialState, validationRules) => {
 
     const [state, dispatch] = useReducer(formReducer, initialState);
 
@@ -107,4 +107,4 @@ const useFormReducer = (initialState, validationRules) => {
     };
 };
 
-export default useFormReducer;
+export default useContactFormReducer;

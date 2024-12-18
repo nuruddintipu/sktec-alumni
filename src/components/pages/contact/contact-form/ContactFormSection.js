@@ -1,10 +1,10 @@
 import {Form, Row} from "react-bootstrap";
 import React from "react";
-import {SendMessageButton} from "./SendMessageButton";
-import {ContactInputFields} from "./ContactInputFields";
+import {SubmitButton} from "./SubmitButton";
+import {ContactInputFields} from "./fields/ContactInputFields";
 import FormContainer from "../../../common/FormContainer";
-import useFormReducer from "../../../../hooks/useFormReducer";
-import {validationRules} from "./ContactFieldsValidationRules";
+import useContactFormReducer from "../hooks/useContactFormReducer";
+import {validationRules} from "./fields/ContactFieldsValidationRules";
 
 
 const ContactFormSection = ({state, handleSubmit, handleChange}) => {
@@ -25,7 +25,7 @@ const ContactFormSection = ({state, handleSubmit, handleChange}) => {
                         state={state}
 
                     />
-                    <SendMessageButton state={state}/>
+                    <SubmitButton state={state}/>
 
                 </Row>
             </Form>

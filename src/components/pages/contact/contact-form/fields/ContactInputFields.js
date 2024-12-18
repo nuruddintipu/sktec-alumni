@@ -1,9 +1,9 @@
-import InputField from "../../../common/InputField";
-import FormRowWrapper from "../../../common/FormRowWrapper";
+import InputField from "../../../../common/InputField";
+import FormRowWrapper from "../../../../common/FormRowWrapper";
 import React from "react";
 import contactFieldsConfigs from "./contactFieldsConfigs";
 import {MessageField} from "./MessageField";
-import FieldError from "../../../common/FieldError";
+import FieldError from "../../../../common/FieldError";
 
 export const ContactInputFields = ({onInputChange, state}) => {
     return (

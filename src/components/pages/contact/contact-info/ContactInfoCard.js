@@ -3,7 +3,7 @@ import {contactInformations} from "../contact-page-text/contactInfoSectionText";
 import IconTextBlock from "../../../common/IconTextBlock";
 import React from "react";
 
-const ContactInfoDefault = ({className="", style, ...rest}) => {
+const ContactInfoCard = ({className="", style, ...rest}) => {
     return (
         <div
             className={`slide-up ${className}`}
@@ -25,4 +25,4 @@ const ContactInfoDefault = ({className="", style, ...rest}) => {
     );
 };
 
-export default ContactInfoDefault;
+export default ContactInfoCard;

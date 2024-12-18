@@ -43,11 +43,11 @@ html, body, #root {
 }
 
 
-.slide-up {
-  animation: slideOutUp 0.5s ease-in;
+.slide-down {
+  animation: slideOutDown 0.5s ease-in;
 }
 
-@keyframes slideOutUp {
+@keyframes slideOutDown {
   from {
     transform: translateY(-200px);
   }
@@ -55,6 +55,17 @@ html, body, #root {
     transform: translateY(0);
   }
 
+}
+.slide-left {
+  animation: slideInRight 0.5s ease-in;
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(-200px);
+  }
+  to{
+    transform: translateX(0);
+  }
 }
 
 @keyframes zoomIn {

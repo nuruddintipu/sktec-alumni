@@ -10,7 +10,7 @@ const messageButtonText = {
 };
 
 
-export const SendMessageButton = ({state}) => {
+export const SubmitButton = ({state}) => {
     return (
         <FormRowWrapper md={12} className="mt-3">
             <Form.Group>

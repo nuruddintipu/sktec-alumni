@@ -1,7 +1,7 @@
-import TextAreaField from "../../../common/TextAreaField";
-import FormRowWrapper from "../../../common/FormRowWrapper";
+import TextAreaField from "../../../../common/TextAreaField";
+import FormRowWrapper from "../../../../common/FormRowWrapper";
 import React from "react";
-import FieldError from "../../../common/FieldError";
+import FieldError from "../../../../common/FieldError";
 
 export const MessageField = ({ onChange,state }) => {
   return(

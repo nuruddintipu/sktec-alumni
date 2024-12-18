@@ -1,10 +1,10 @@
-import {includeAllBatch, includeAllDeptOptions} from "../../../common/dropdownOptions";
+import {includeAllBatch, includeAllDeptOptions} from "../../../../common/dropdownOptions";
 
 
 export const eligibilityFieldConfigs = [
     {
         controlId: "butexId",
-        label: "Enter Your BUTEX Id",
+        label: "Enter Your BUTEX Id   (JYYYYDDRRR)",
         type: "text",
         name: "butexId",
         placeholder: "e.g. J201914001",
@@ -35,5 +35,7 @@ export const eligibilityDropdownConfigs = [
 
 export const eligibilityTopBarText = {
     heading: "Eligibility Check",
-    body: "Please fill in the required fields to check your eligibility."
+    body: "Please fill in the required fields to check your eligibility.",
+    failure: "Sorry you are not eligible.",
+    exist: "You are already registered."
 }

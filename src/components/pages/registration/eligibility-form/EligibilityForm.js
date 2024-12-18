@@ -4,13 +4,13 @@ import FormContainer from "../../../common/FormContainer";
 import {EligibilityFormFields} from "./EligibilityFormFields";
 import {CheckEligibilityButton} from "./CheckEligibilityButton";
 import EligibilityFormTopBar from "./EligibilityFormTopBar";
-import {eligibilityTopBarText} from "./eligibilityFieldConfigs";
+import {eligibilityTopBarText} from "./configs/eligibilityFieldConfigs";
 import useEligibilityForm from "./useEligibilityForm";
 
 
 function EligibilityForm() {
     const {state, handleSubmit, handleChange} = useEligibilityForm();
-
+    console.log(state);
 
     return (
         <>

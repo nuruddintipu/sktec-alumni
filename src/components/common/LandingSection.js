@@ -5,7 +5,7 @@ const LandingSection = ({title, body, className}) => {
     return (
         <section
             className={`homepage-bg d-flex align-items-center ${className || ""}`.trim()}>
-            <Container className="text-center text-light slide-up fade-in">
+            <Container className="text-center text-light slide-down fade-in">
                 <Row>
                     <h1 className="display-4 fw-bold">{title}</h1>
                     <p className="home-text " >

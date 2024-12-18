@@ -2,7 +2,7 @@ import React from 'react';
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import Homepage from "./components/pages/homepage/Homepage";
 import './styles/App.css';
-import RegistrationForm from "./components/pages/registration/RegistrationForm";
+import RegistrationPage from "./components/pages/registration/RegistrationPage";
 import Contact from "./components/pages/contact/Contact";
 import About from "./components/pages/about/About";
 import routes from "./route-paths/routes";
@@ -22,7 +22,7 @@ function App() {
                         <Route path={routes.contact} element={<Contact/>}/>
                     </Route>
                     <Route element={<MinimalLayout/>}>
-                        <Route path={routes.registration} element={<RegistrationForm/>}/>
+                        <Route path={routes.registration} element={<RegistrationPage/>}/>
                     </Route>
                 </Routes>
             </div>

@@ -1,8 +1,8 @@
-import useFormReducer from "../../../../hooks/useFormReducer";
-import {eligibilityValidationRules, initialState} from "./eligibilityConfigs";
+import useContactFormReducer from "../../contact/hooks/useContactFormReducer";
+import {eligibilityValidationRules, initialState} from "./configs/eligibilityFormConfigs";
 
 const useEligibilityForm = () => {
-    return useFormReducer(initialState, eligibilityValidationRules);
+    return useContactFormReducer(initialState, eligibilityValidationRules);
 };
 
 export default useEligibilityForm;

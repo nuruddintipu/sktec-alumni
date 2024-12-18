@@ -1,8 +1,8 @@
 import {Col, Row} from "react-bootstrap";
 import React from "react";
-import '../ContactPageStyles.css';
-import ContactSuccess from "./ContactSuccess";
-import ContactInfoDefault from "./ContactInfoDefault";
+import '../styles/ContactPageStyles.css';
+import ContactSuccessMessage from "./ContactSuccessMessage";
+import ContactInfoCard from "./ContactInfoCard";
 
 const ContactInfoContainer = ({state}) => {
     return (
@@ -10,8 +10,8 @@ const ContactInfoContainer = ({state}) => {
             <Row className={"w-100 p-md-5 p-4 mt-4"}>
 
                 {state.status === "success" ?
-                    <ContactSuccess /> :
-                    <ContactInfoDefault />
+                    <ContactSuccessMessage /> :
+                    <ContactInfoCard />
                 }
 
             </Row>

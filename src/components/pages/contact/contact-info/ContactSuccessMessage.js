@@ -1,13 +1,13 @@
 import {succesMessage} from "../contact-page-text/contactInfoSectionText";
 
-const ContactSuccess = ({
+const ContactSuccessMessage = ({
                             className,
                             style,
                             ...rest
                         }) => {
     return (
         <div
-            className={`success-message slide-up ${className}`}
+            className={`success-message slide-down ${className}`}
             style={style}
             {...rest}
         >
@@ -17,4 +17,4 @@ const ContactSuccess = ({
     );
 };
 
-export default ContactSuccess;
+export default ContactSuccessMessage;

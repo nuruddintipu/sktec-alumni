@@ -1,5 +1,5 @@
 import {useEffect, useReducer} from "react";
-import filteredAlumni from "./alumniFilterUtils";
+import filteredAlumni from "../utils/alumniFilterUtils";
 import alumniReducer from "./alumniReducer";
 import {getTotalPages, paginateData} from "../../../common/pagination/paginationUtils";
 

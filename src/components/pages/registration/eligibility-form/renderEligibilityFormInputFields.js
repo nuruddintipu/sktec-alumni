@@ -1,5 +1,5 @@
 import React from "react";
-import {eligibilityDropdownConfigs, eligibilityFieldConfigs} from "./eligibilityFieldConfigs";
+import {eligibilityDropdownConfigs, eligibilityFieldConfigs} from "./configs/eligibilityFieldConfigs";
 import {Col} from "react-bootstrap";
 import DropdownBar from "../../../common/DropdownBar";
 import FieldError from "../../../common/FieldError";

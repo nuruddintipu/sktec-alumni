@@ -1,12 +1,12 @@
 import React from "react";
-import '../registration/registrationForm.css';
+import '../registration/styles/registrationForm.css';
 import ContactInfoContainer from "./contact-info/ContactInfoContainer";
 import ContactFormSection from "./contact-form/ContactFormSection";
 import FormPageTemplate from "../../common/FormPageTemplate";
 import SectionHeading from "../../common/SectionHeading";
-import useFormReducer from "../../../hooks/useFormReducer";
-import {validationRules} from "./contact-form/ContactFieldsValidationRules";
-import useContactForm from "./useContactForm";
+import useContactFormReducer from "./hooks/useContactFormReducer";
+import {validationRules} from "./contact-form/fields/ContactFieldsValidationRules";
+import useContactForm from "./hooks/useContactForm";
 import {contactPageHeading} from "./contact-page-text/contactPageText";
 
 
