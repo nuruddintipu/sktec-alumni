@@ -7,16 +7,7 @@ import useFormReducer from "../../../../hooks/useFormReducer";
 import {validationRules} from "./ContactFieldsValidationRules";
 
 
-const initialState = {
-    name: "",
-    email: "",
-    message: "",
-    subject: "",
-    errors: {},
-};
-
-const ContactFormSection = () => {
-    const {state, handleSubmit, handleChange} = useFormReducer(initialState, validationRules);
+const ContactFormSection = ({state, handleSubmit, handleChange}) => {
 
     return (
         <FormContainer md={7}>
@@ -32,8 +23,9 @@ const ContactFormSection = () => {
                     <ContactInputFields
                         onInputChange={handleChange}
                         state={state}
+
                     />
-                    <SendMessageButton/>
+                    <SendMessageButton state={state}/>
 
                 </Row>
             </Form>

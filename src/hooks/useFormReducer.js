@@ -1,4 +1,5 @@
 import {useReducer} from "react";
+import axios from "axios";
 
 const useFormReducer = (initialState, validationRules) => {
 
@@ -17,6 +18,11 @@ const useFormReducer = (initialState, validationRules) => {
                         [action.field]: action.value,
                     },
                 };
+            case "set_status":
+                return {
+                    ...state,
+                    status: action.value,
+                };
             case 'reset':
                 return action.initialState;
             default:
@@ -31,7 +37,7 @@ const useFormReducer = (initialState, validationRules) => {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        dispatch({type: 'update_field', field: name, value});
+        dispatch({type: 'update_field', field: name, value: value});
 
         if (validationRules[name] && validationRules[name](value)) {
             dispatch({ type: 'set_error', field: name, value: "" });
@@ -54,12 +60,27 @@ const useFormReducer = (initialState, validationRules) => {
         dispatch({type: "reset", initialState});
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            resetForm();
-            alert("Successfull!");
+            dispatch({type: "set_status", value: "success"});
+            setTimeout(() => resetForm(), 3000);
         }
+
+        // if (validateForm()) {
+        //     dispatch({type: "set_status", value: "sending"}); // Update status to "sending"
+        //
+        //     try {
+        //         // Replace the URL with your backend endpoint.
+        //         await axios.post("https://your-api-endpoint.com/messages", state);
+        //         dispatch({type: "set_status", value: "sent"}); // Update status to "sent"
+        //
+        //         setTimeout(() => resetForm(), 2000); // Optional: Reset form after 2 seconds.
+        //     } catch (error) {
+        //         console.error("Error sending message:", error);
+        //         dispatch({type: "set_status", value: "error"}); // Handle error status.
+        //     }
+        // }
     };
 
 

@@ -1,6 +1,6 @@
 import {FaEnvelope, FaMapMarkerAlt, FaPhoneAlt} from "react-icons/fa";
 
-export const contactIntornations = [
+export const contactInformations = [
     {
         title: "Open Hours",
         icon: <FaEnvelope />,
@@ -19,7 +19,13 @@ export const contactIntornations = [
 ];
 
 
-export const headerText =  {
+export const contactInfoDefaultText =  {
     headline: "Send Us Message",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+};
+
+
+export const succesMessage = {
+  headerText: "Your message is sent",
+    body: "Please wait for our response."
 };

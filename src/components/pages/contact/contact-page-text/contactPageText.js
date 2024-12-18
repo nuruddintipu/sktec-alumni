@@ -1,0 +1,1 @@
+export const contactPageHeading = "Contact Form";

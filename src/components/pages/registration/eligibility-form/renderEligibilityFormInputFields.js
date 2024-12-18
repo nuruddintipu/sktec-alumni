@@ -18,7 +18,7 @@ export const renderInputFields = ({state, onChange}) =>
                 onChange={(e) => onChange(e)}
                 value={state[name]}
             />
-            {state.errors[name] && <FieldError error={state.errors[name]}/>}
+            <FieldError error={state.errors[name]}/>
         </React.Fragment>
     ));
 
@@ -35,7 +35,7 @@ export const renderDropdownFields = ({state, onChange}) =>
                 onChange={(e) => onChange(e)}
                 state={state}
             />
-            {state.errors[name] && <FieldError error={state.errors[name]}/>}
+            <FieldError error={state.errors[name]}/>
         </Col>
     ));
 

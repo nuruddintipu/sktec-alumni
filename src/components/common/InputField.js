@@ -9,7 +9,7 @@ const InputField = ({
                         placeholder ,
                         onChange = () => {},
                         className,
-    value
+                        value
 }) => {
 
     return (

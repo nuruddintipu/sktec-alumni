@@ -11,3 +11,13 @@
 .invalid-feedback {
     color: red;
 }
+
+.success-message {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+@keyframes uf-animation {
+    0%   {top:0px;}
+    50%  {top:-30px;}
+    100% {top:0px;}
+}

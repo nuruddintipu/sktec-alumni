@@ -1,6 +1,7 @@
 import TextAreaField from "../../../common/TextAreaField";
 import FormRowWrapper from "../../../common/FormRowWrapper";
 import React from "react";
+import FieldError from "../../../common/FieldError";
 
 export const MessageField = ({ onChange,state }) => {
   return(
@@ -14,7 +15,7 @@ export const MessageField = ({ onChange,state }) => {
               state={state}
               onChange={onChange}
           />
-          <p className={`text-danger ${state.errors.message ? "" : "invisible"}`}  style={{ minHeight: "1.5rem" }}>{state.errors.message}</p>
+          <FieldError error={state.errors.message} />
 
 
       </FormRowWrapper>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 const SectionHeading = ({
                             heading,
@@ -11,7 +11,8 @@ const SectionHeading = ({
                         }) => {
     return (
         <Row>
-            <Col className={`justify-content-center align-items-center ${containerClass}`}
+            <Col
+                className={`justify-content-center align-items-center ${containerClass}`}
                 style={containerStyle}
             >
                 <h1

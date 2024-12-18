@@ -1,11 +1,27 @@
-import {headerText} from "./contactInfoSectionText";
+import {contactInfoDefaultText, headerText} from "../contact-page-text/contactInfoSectionText";
 import React from "react";
 
-const ContactInfoHeader = () => {
+const ContactInfoHeader = ({
+                               headlineStyle,
+                               headlineClass,
+                               bodytextStyle,
+                               bodytextClass
+}) => {
     return (
         <>
-            <h3>{headerText.headline}</h3>
-            <p>{headerText.body}</p>
+            <h3
+                className={headlineClass}
+                style={headlineStyle}
+            >
+                {contactInfoDefaultText.headline}
+            </h3>
+
+            <p
+                className={bodytextClass}
+                style={bodytextStyle}
+            >
+                {contactInfoDefaultText.body}
+            </p>
         </>
     );
 };

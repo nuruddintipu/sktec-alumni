@@ -3,6 +3,7 @@ import FormRowWrapper from "../../../common/FormRowWrapper";
 import React from "react";
 import contactFieldsConfigs from "./contactFieldsConfigs";
 import {MessageField} from "./MessageField";
+import FieldError from "../../../common/FieldError";
 
 export const ContactInputFields = ({onInputChange, state}) => {
     return (
@@ -22,9 +23,10 @@ export const ContactInputFields = ({onInputChange, state}) => {
                             placeholder={placeholder}
                             required={required}
                             onChange={(e) => onInputChange(e)}
-                            state={state}
+                            value={state[name]}
                         />
-                        <p className={`text-danger ${state.errors[name] ? "" : "invisible"}`}  style={{ minHeight: "1.5rem" }}>{state.errors[name]}</p>
+
+                        <FieldError error={state.errors[name]} />
 
 
                     </FormRowWrapper>
