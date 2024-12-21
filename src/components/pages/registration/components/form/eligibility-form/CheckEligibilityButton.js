@@ -1,6 +1,6 @@
-import FormRowWrapper from "../../../common/FormRowWrapper";
+import FormRowWrapper from "../../../../../common/FormRowWrapper";
 import {Form} from "react-bootstrap";
-import ButtonPrimary from "../../../common/button/ButtonPrimary";
+import ButtonPrimary from "../../../../../common/button/ButtonPrimary";
 import React from "react";
 
 export const CheckEligibilityButton =({  buttonText = "Check Eligibility", type = "submit" , state })=>{

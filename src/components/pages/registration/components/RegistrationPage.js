@@ -1,9 +1,9 @@
 import React from "react";
-import './styles/registrationForm.css';
-import FormPageTemplate from "../../common/FormPageTemplate";
-import EligibilityForm from "./eligibility-form/EligibilityForm";
-import SectionHeading from "../../common/SectionHeading";
-import {RegFormHeading} from "./RegFormTexts";
+import '../styles/registrationForm.css';
+import FormPageTemplate from "../../../common/FormPageTemplate";
+import EligibilityForm from "./form/eligibility-form/EligibilityForm";
+import SectionHeading from "../../../common/SectionHeading";
+import {RegFormHeading} from "../RegFormTexts";
 
 
 

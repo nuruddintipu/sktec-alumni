@@ -1,12 +1,9 @@
-export const initialState = {
-    butexId: "",
-    batch: "",
-    department: "",
-    errors: {}
-};
-export const eligibilityValidationRules ={
+export const eligibilityValidationRules = {
     butexId: (value) => {
         const id = value.toLowerCase();
+        if(!value){
+            return "ButexId is required!";
+        }
         // Check if the format matches 'JYYYYDDRRR'
         const regex = /^j(\d{4})(\d{2})(\d{3})$/;
         const match = id.match(regex);

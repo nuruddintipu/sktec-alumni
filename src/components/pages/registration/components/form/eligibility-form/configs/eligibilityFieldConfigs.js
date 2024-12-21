@@ -1,4 +1,4 @@
-import {includeAllBatch, includeAllDeptOptions} from "../../../../common/dropdownOptions";
+import {includeAllBatch, includeAllDeptOptions} from "../../../../../../common/dropdownOptions";
 
 
 export const eligibilityFieldConfigs = [

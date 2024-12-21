@@ -1,4 +1,4 @@
-import {eligibleIds} from "../../../utils/exampleAlumni";
+import {eligibleIds} from "../../../../utils/exampleAlumni";
 
 const checkEligibilityFn = (butexId) => {
     const id = butexId.toLowerCase();
@@ -13,9 +13,7 @@ const checkEligibilityFn = (butexId) => {
             return false; // Not eligible
         }
 
-        if(!eligibleIds.includes(id)){
-            return false;
-        }
+        return eligibleIds.some(storedId => storedId.toLowerCase() === id);
     }
 
 

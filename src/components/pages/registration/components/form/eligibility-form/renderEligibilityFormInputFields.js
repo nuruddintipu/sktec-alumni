@@ -1,9 +1,9 @@
 import React from "react";
 import {eligibilityDropdownConfigs, eligibilityFieldConfigs} from "./configs/eligibilityFieldConfigs";
 import {Col} from "react-bootstrap";
-import DropdownBar from "../../../common/DropdownBar";
-import FieldError from "../../../common/FieldError";
-import InputField from "../../../common/InputField";
+import DropdownBar from "../../../../../common/DropdownBar";
+import FieldError from "../../../../../common/FieldError";
+import InputField from "../../../../../common/InputField";
 
 
 export const renderInputFields = ({state, onChange}) =>
@@ -16,9 +16,9 @@ export const renderInputFields = ({state, onChange}) =>
                 name={name}
                 placeholder={placeholder}
                 onChange={(e) => onChange(e)}
-                value={state[name]}
+                value={state.eligibility[name]}
             />
-            <FieldError error={state.errors[name]}/>
+            <FieldError error={state.errors.eligibility[name]}/>
         </React.Fragment>
     ));
 
@@ -28,14 +28,14 @@ export const renderDropdownFields = ({state, onChange}) =>
         <Col md={6} key={index} className="mt-3">
             <DropdownBar
                 label={label}
-                value={state[name]}
+                value={state.eligibility[name]}
                 name={name}
                 options={options}
                 placeholder={placeholder}
                 onChange={(e) => onChange(e)}
                 state={state}
             />
-            <FieldError error={state.errors[name]}/>
+            <FieldError error={state.errors.eligibility[name]}/>
         </Col>
     ));
 

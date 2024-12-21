@@ -2,7 +2,7 @@ import React from 'react';
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import Homepage from "./components/pages/homepage/Homepage";
 import './styles/App.css';
-import RegistrationPage from "./components/pages/registration/RegistrationPage";
+import RegistrationPage from "./components/pages/registration/components/RegistrationPage";
 import Contact from "./components/pages/contact/Contact";
 import About from "./components/pages/about/About";
 import routes from "./route-paths/routes";

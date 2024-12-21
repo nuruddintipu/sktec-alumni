@@ -1,16 +1,18 @@
 import {Form, Row} from "react-bootstrap";
 import React from "react";
-import FormContainer from "../../../common/FormContainer";
+import FormContainer from "../../../../../common/FormContainer";
 import {EligibilityFormFields} from "./EligibilityFormFields";
 import {CheckEligibilityButton} from "./CheckEligibilityButton";
 import EligibilityFormTopBar from "./EligibilityFormTopBar";
 import {eligibilityTopBarText} from "./configs/eligibilityFieldConfigs";
-import useEligibilityForm from "./useEligibilityForm";
+import {initialState} from "../../../../../../hooks/registration/initialState";
+import {useRegFormReducer} from "../../../../../../hooks/registration/useRegFormReducer";
+import {eligibilityValidationRules} from "../../../../../../hooks/registration/reducer-helpers/validationRules";
 
 
 function EligibilityForm() {
-    const {state, handleSubmit, handleChange} = useEligibilityForm();
-    console.log(state);
+    const { state, handleChange, handleNext } = useRegFormReducer(initialState, eligibilityValidationRules);
+
 
     return (
         <>
@@ -23,15 +25,15 @@ function EligibilityForm() {
                         id="eligibilityForm"
                         name="eligibilityForm"
                         className="eligibilityForm"
-                        onSubmit={handleSubmit}
+                        onSubmit={handleNext}
                         noValidate
                     >
                         <Row>
                             <EligibilityFormFields
                                 state={state}
-                                onChange={(e) => handleChange(e)}
+                                onChange={(e) => handleChange("eligibility", e.target.name, e.target.value)}
                             />
-                            <CheckEligibilityButton/>
+                            <CheckEligibilityButton />
                         </Row>
                     </Form>
                 </FormContainer>

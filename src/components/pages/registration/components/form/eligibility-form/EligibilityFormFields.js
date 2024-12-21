@@ -1,4 +1,4 @@
-import FormRowWrapper from "../../../common/FormRowWrapper";
+import FormRowWrapper from "../../../../../common/FormRowWrapper";
 import { Row } from "react-bootstrap";
 import React from "react";
 import {renderDropdownFields, renderInputFields} from "./renderEligibilityFormInputFields";
