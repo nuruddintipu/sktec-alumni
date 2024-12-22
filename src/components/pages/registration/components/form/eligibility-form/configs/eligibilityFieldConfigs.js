@@ -1,6 +1,3 @@
-import {includeAllBatch, includeAllDeptOptions} from "../../../../../../common/dropdownOptions";
-
-
 export const eligibilityFieldConfigs = [
     {
         controlId: "butexId",
@@ -12,30 +9,9 @@ export const eligibilityFieldConfigs = [
     },
 ];
 
-const batchesOptions = includeAllBatch(false);
-const departmentOptions = includeAllDeptOptions(false);
-export const eligibilityDropdownConfigs = [
-    {
-        label: "Batch",
-        value: "",
-        name: "batch",
-        options: batchesOptions,
-        field: "selectedSession",
-        placeholder: "Batch",
-    },
-    {
-        label: "Department",
-        value: "",
-        name: "department",
-        options: departmentOptions,
-        field: "selectedDepartment",
-        placeholder: "Department",
-    },
-];
-
 export const eligibilityTopBarText = {
     heading: "Eligibility Check",
-    body: "Please fill in the required fields to check your eligibility.",
-    failure: "Sorry you are not eligible.",
-    exist: "You are already registered."
+    default: "Please fill in your BUTEX registration Id to check your eligibility.",
+    failure: "Sorry you are not eligible now.",
+    exist: "You are already registered, for any information please contact with the concern authority."
 }

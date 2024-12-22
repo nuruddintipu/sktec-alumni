@@ -22,20 +22,3 @@ export const renderInputFields = ({state, onChange}) =>
         </React.Fragment>
     ));
 
-
-export const renderDropdownFields = ({state, onChange}) =>
-    eligibilityDropdownConfigs.map(({label, name, options, placeholder}, index) => (
-        <Col md={6} key={index} className="mt-3">
-            <DropdownBar
-                label={label}
-                value={state.eligibility[name]}
-                name={name}
-                options={options}
-                placeholder={placeholder}
-                onChange={(e) => onChange(e)}
-                state={state}
-            />
-            <FieldError error={state.errors.eligibility[name]}/>
-        </Col>
-    ));
-

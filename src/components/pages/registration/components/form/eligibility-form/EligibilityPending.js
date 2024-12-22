@@ -1,6 +1,6 @@
 import React from "react";
 
-const EligibilityFailure = ({
+const EligibilityDefault = ({
                                 eligibilityTopBarText,
                                 style,
                                 className,
@@ -8,8 +8,8 @@ const EligibilityFailure = ({
                             }) => {
 
     return (
-        <p className={`slide-down ${className}`} style={style}>{eligibilityTopBarText.failure}</p>
+        <p className={`slide-down ${className}`} style={style}>{eligibilityTopBarText.default}</p>
     );
 };
 
-export default EligibilityFailure;
+export default EligibilityDefault;

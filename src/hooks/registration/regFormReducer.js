@@ -1,3 +1,5 @@
+import {initialState} from "../../components/pages/alumni-directory/hooks/alumniReducer";
+
 export const regFormReducer = (state, action) => {
     switch (action.type) {
         case "SET_FIELD_VALUE":
@@ -19,6 +21,16 @@ export const regFormReducer = (state, action) => {
                     },
                 },
             };
+        case "DISABLE_BUTTON":
+            return {
+                ...state,
+                buttonDisabled: action.payload,
+            };
+        case "NEW_MEMBER":
+            return {
+                ...state,
+                isNewAlumni: action.payload,
+            }
         case "NEXT_STEP":
             return {
                 ...state,
@@ -30,7 +42,8 @@ export const regFormReducer = (state, action) => {
                 currentStep: state.currentStep - 1,
             };
         case "RESET_FORM":
-            return action.payload.initialState;
+            console.log("Resetting form to initial state:", action.payload);
+            return action.payload;
         default:
             throw new Error(`Unknown action type: ${action.type}`);
     }

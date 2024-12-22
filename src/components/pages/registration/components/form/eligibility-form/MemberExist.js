@@ -8,7 +8,7 @@ const MemberExist = ({
                             }) => {
 
     return (
-        <p className={className} style={style}>{eligibilityTopBarText.exist}</p>
+        <p className={`slide-down ${className}`} style={style}>{eligibilityTopBarText.exist}</p>
     );
 };
 

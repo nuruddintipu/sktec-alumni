@@ -9,9 +9,7 @@ export const EligibilityFormFields = ({onChange, state}) => {
         <>
             <FormRowWrapper md={12} className="mt-3">
                 {renderInputFields({ state, onChange })}
-                <Row className="mb-3">{renderDropdownFields({ state, onChange })}</Row>
             </FormRowWrapper>
-
         </>
     );
 };
