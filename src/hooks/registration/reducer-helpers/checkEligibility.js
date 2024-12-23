@@ -1,6 +1,6 @@
 // Utility function for batch matching logic
 import {eligibleIds, exampleAlumni} from "../../../utils/exampleAlumni";
-import {resetForm, setFieldValue, setNewMember} from "../regFormActions";
+import {resetForm, setFieldValue, setNewMember, setNextStep} from "../regFormActions";
 import {checkMemberExist} from "./checkMemberExist";
 import {initialState} from "../initialState";
 
@@ -40,12 +40,10 @@ export const checkEligibility = ({eligibility: {butexId}}, dispatch) => {
     dispatch(setFieldValue("eligibility", "isEligible", isGraduated ? "eligible" : "notEligible"));
     const alumni = exampleAlumni.find(alumni => alumni.butexId.toUpperCase() === butexId.toUpperCase());
 
-    console.log(alumni);
     if (alumni) {
         dispatch(setNewMember(false)); // Alumni exists
-    } else {
+    } else if(isGraduated) {
         dispatch(setNewMember(true)); // New member
+        dispatch(setNextStep());
     }
-
-    setTimeout(() =>dispatch(resetForm(initialState)), 3000);
 };

@@ -1,23 +1,17 @@
 import React from 'react';
 import { Col, Row, Form, Card } from 'react-bootstrap';
+import AcademicInfoForm from "../AcademicInfoForm";
+import JobExperienceForm from "../JobExperienceForm";
 
-function GeneralInfoForm() {
+function GeneralFormFields() {
     return (
         <>
             <Card.Subtitle>General Information</Card.Subtitle>
             <Form.Group className="mb-3">
-                {/* First Name & Last Name */}
                 <Row className="mt-4">
                     <Col md={6}>
-                        <Form.Control type="text" placeholder="First Name" required />
+                        <Form.Control type="text" placeholder="Full Name" required />
                     </Col>
-                    <Col md={6}>
-                        <Form.Control type="text" placeholder="Last Name" required/>
-                    </Col>
-                </Row>
-
-                {/* Gender Selection */}
-                <Row className="mt-4">
                     <Col md={6}>
                         <Form.Group required>
                             <Form.Select
@@ -36,14 +30,13 @@ function GeneralInfoForm() {
                     </Col>
                 </Row>
 
-
                 {/* Contact Information */}
                 <Form.Group >
                     <Row>
-                        <Col md={4} className={'mt-4'}>
+                        <Col md={6} className={'mt-4'}>
                             <Form.Control type="text" placeholder="Phone Number" required />
                         </Col>
-                        <Col md={8} className={'mt-4'}>
+                        <Col md={6} className={'mt-4'}>
                             <Form.Control type="email" placeholder="Email Address e.g. johndoe@domain.com" />
                         </Col>
                     </Row>
@@ -52,8 +45,10 @@ function GeneralInfoForm() {
                     </Row>
                 </Form.Group>
             </Form.Group>
+            <AcademicInfoForm />
+            <JobExperienceForm />
         </>
     );
 }
 
-export default GeneralInfoForm;
+export default GeneralFormFields;

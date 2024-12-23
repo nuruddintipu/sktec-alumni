@@ -2,14 +2,12 @@ import {Form, Row} from "react-bootstrap";
 import React from "react";
 import FormContainer from "../../../../../common/FormContainer";
 import {EligibilityFormFields} from "./EligibilityFormFields";
-import {NextButton} from "./CheckEligibilityButton";
+import {NextButton} from "./NextButton";
 import EligibilityFormTopBar from "./EligibilityFormTopBar";
 import {eligibilityTopBarText} from "./configs/eligibilityFieldConfigs";
-import {useRegistration} from "../../../../../../hooks/registration/useRegFormReducer";
 
 
-function EligibilityForm() {
-    const {state, handleChange, handleNext} = useRegistration();
+function EligibilityForm({state, handleChange, handleNext}) {
 
     return (
         <>

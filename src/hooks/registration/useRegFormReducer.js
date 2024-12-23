@@ -32,7 +32,6 @@ export const useRegFormReducer = (initialState, validationRules) => {
 
         stepHandlers[state.currentStep](state, dispatch);
 
-        // dispatch(setNextStep());
     };
 
     useEffect(() => {

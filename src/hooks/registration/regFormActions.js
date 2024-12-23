@@ -7,7 +7,6 @@ import {
     SET_ERROR,
     SET_FIELD_VALUE
 } from "./actionTypes";
-import {initialState} from "./initialState";
 
 
 
