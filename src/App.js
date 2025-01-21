@@ -9,6 +9,7 @@ import routes from "./route-paths/routes";
 import MainLayout from "./components/layouts/MainLayout";
 import MinimalLayout from "./components/layouts/MinimalLayout";
 import AlumniDirectory from "./components/pages/alumni-directory/AlumniDirectory";
+import Login from "./components/pages/login/Login";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     </Route>
                     <Route element={<MinimalLayout/>}>
                         <Route path={routes.registration} element={<RegistrationPage/>}/>
+                        <Route path={routes.loginPage} element={<Login/>}/>
                     </Route>
                 </Routes>
             </div>

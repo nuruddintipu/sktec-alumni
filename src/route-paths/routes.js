@@ -3,7 +3,8 @@ const routes = {
     about: "/about",
     registration: "/registration",
     alumniDirectory: "/alumni-directory",
-    contact: "/contact"
+    contact: "/contact",
+    loginPage: "/login"
 };
 
 export default routes;
