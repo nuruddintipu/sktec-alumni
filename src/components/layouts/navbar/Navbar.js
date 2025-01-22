@@ -5,7 +5,7 @@ import logoNavyBlue from '../../../assets/images/saa-logo.png';
 import logoWhite from '../../../assets/images/saa-logo-white.png';
 import './navbar.css';
 import {Link} from "react-router-dom";
-import routes from "../../../route-paths/routes";
+import routes from "../../../routes/routes";
 
 const NavigationBar = () => {
     // State for scrolling behavior
@@ -44,7 +44,7 @@ const NavigationBar = () => {
 
     return (
         <Navbar
-            variant={scrolling?'dark':''}
+            variant={scrolling ? 'dark' : ''}
             expand="lg"
             sticky="top"
             className="border-bottom"
@@ -76,8 +76,10 @@ const NavigationBar = () => {
                 {/* Navbar links */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-dark">
-                        <Nav.Link as={Link} to={routes.home} style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
-                        <Nav.Link as={Link} to={routes.about} style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
+                        <Nav.Link as={Link} to={routes.home}
+                                  style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
+                        <Nav.Link as={Link} to={routes.about} style={{color: scrolling ? 'white' : 'black'}}>About
+                            Us</Nav.Link>
 
                         <NavDropdown
                             title='Alumni'
@@ -88,7 +90,8 @@ const NavigationBar = () => {
                         </NavDropdown>
 
 
-                        <Nav.Link as={Link} to={routes.loginPage} style={{color: scrolling ? 'white' : 'black'}}>Login</Nav.Link>
+                        <Nav.Link as={Link} to={routes.loginPage}
+                                  style={{color: scrolling ? 'white' : 'black'}}>Login</Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>

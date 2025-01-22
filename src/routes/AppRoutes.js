@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-import routes from './route-paths/routes';
+import {Routes, Route} from 'react-router-dom';
+import routes from './routes';
 
 const generateRoutes = (routes) =>
-    routes.map(({ path, element, loader, children }, index) => (
+    routes.map(({path, element, loader, children}, index) => (
         <Route key={index} path={path} element={element} loader={loader}>
             {children && generateRoutes(children)}
         </Route>

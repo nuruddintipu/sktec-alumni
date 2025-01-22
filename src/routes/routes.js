@@ -13,31 +13,32 @@ function authLoader() {
 }
 
 const mainLayoutRoutes = [
-    { path: '', element: <Homepage />, loader: authLoader },
-    { path: 'about', element: <About />, loader: authLoader },
+    {path: '', element: <Homepage/>, loader: authLoader, name: 'HOME'},
+    {path: 'about', element: <About/>, loader: authLoader, name: 'ABOUT'},
     {
         path: 'alumni-directory',
-        element: <AlumniDirectory />,
-        loader: authLoader
+        element: <AlumniDirectory/>,
+        loader: authLoader,
+        name: 'ALUMNI_DIRECTORY'
     },
-    { path: 'contact', element: <Contact />, loader: authLoader }
+    {path: 'contact', element: <Contact/>, loader: authLoader, name: 'CONTACT'}
 ];
 
 const minimalLayoutRoutes = [
-    { path: 'login', element: <Login />, loader: authLoader },
-    { path: 'secured', element: <SecuredPage />, loader: authLoader }
+    {path: 'login', element: <Login/>, loader: authLoader, name: 'LOGIN'},
+    {path: 'secured', element: <SecuredPage/>, loader: authLoader, name: 'SECURED'}
 ];
 
 const routes = [
     {
         path: '/',
-        element: <MainLayout />,
+        element: <MainLayout/>,
         loader: authLoader,
         children: mainLayoutRoutes
     },
     {
         path: 'auth',
-        element: <MinimalLayout />,
+        element: <MinimalLayout/>,
         loader: authLoader,
         children: minimalLayoutRoutes
     }
