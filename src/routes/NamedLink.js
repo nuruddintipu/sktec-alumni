@@ -6,7 +6,7 @@ const normalizePath = (parentPath, routePath) => {
     return combinedPath.replace(/\/+/g, '/').replace(/\/$/, '');
 };
 
-const findRoutePath = (routeName, routeList = routes, parentPath = '') => {
+export const getRoutePath = (routeName, routeList = routes, parentPath = '') => {
     for (const route of routeList) {
         const fullPath = normalizePath(parentPath, route.path);
 
@@ -15,7 +15,7 @@ const findRoutePath = (routeName, routeList = routes, parentPath = '') => {
         }
 
         if (route.children) {
-            const childPath = findRoutePath(routeName, route.children, fullPath);
+            const childPath = getRoutePath(routeName, route.children, fullPath);
             if (childPath) {
                 return childPath;
             }
@@ -25,7 +25,7 @@ const findRoutePath = (routeName, routeList = routes, parentPath = '') => {
 };
 
 const NamedLink = ({routeName, children, ...props}) => {
-    const path = findRoutePath(routeName) || '';
+    const path = getRoutePath(routeName) || '';
     return <Link to={path} {...props}>{children}</Link>;
 };
 

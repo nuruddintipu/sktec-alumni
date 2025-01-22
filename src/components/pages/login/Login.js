@@ -4,6 +4,7 @@ import './Login.css';
 import routes from "../../../routes/routes";
 import {Navigate, useNavigate} from 'react-router-dom';
 import {validateLoginForm} from "./validateLoginForm";
+import {getRoutePath} from "../../../routes/NamedLink";
 
 function Login() {
 
@@ -23,8 +24,9 @@ function Login() {
     const user = getUserLocalStorage();
 
     if (user) {
-        return <Navigate to={routes.securedPage}/>;
+        // return navigate(getRoutePath('HOME'));
     }
+
     const newError = validateLoginForm(email, password);
 
     const handleSubmit = async (event) => {
@@ -59,7 +61,7 @@ function Login() {
                                 id: data.userId,
                             })
                         );
-                        navigate(routes.securedPage);
+                        navigate(getRoutePath('SECURED_PAGE'));
                     } else {
                         setApiErrors(data.message);
                         setTimeout(() => {

@@ -8,9 +8,14 @@ import Contact from '../components/pages/contact/Contact';
 import Login from '../components/pages/login/Login';
 import SecuredPage from '../components/pages/login/SecuredPage';
 import RegistrationPage from "../components/pages/registration/components/RegistrationPage";
+import {redirect} from "react-router-dom";
 
 function authLoader() {
-    alert('authLoader');
+    const isAuthenticated = localStorage.getItem('user'); // Example logic
+    if (!isAuthenticated) {
+        return redirect('/auth/login');
+    }
+    return null;
 }
 
 const mainLayoutRoutes = [
@@ -28,7 +33,7 @@ const mainLayoutRoutes = [
 const minimalLayoutRoutes = [
     {path: 'login', element: <Login/>, loader: authLoader, name: 'LOGIN'},
     {path: 'registration', element: <RegistrationPage/>, loader: authLoader, name: 'REGISTRATION'},
-    {path: 'secured', element: <SecuredPage/>, loader: authLoader, name: 'SECURED'}
+    {path: 'secured', element: <SecuredPage/>, loader: authLoader, name: 'SECURED_PAGE'}
 ];
 
 const routes = [
