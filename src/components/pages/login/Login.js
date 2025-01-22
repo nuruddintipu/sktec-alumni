@@ -2,39 +2,40 @@
 import React, { useState } from 'react';
 import {Form, Button, Alert} from 'react-bootstrap';
 import './Login.css';
-
+import routes from "../../../route-paths/routes";
+import {Navigate, useNavigate} from 'react-router-dom';
+import {validateLoginForm} from "./validateLoginForm";
 
 function Login() {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const [apiErrors, setApiErrors] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
 
-
-
-    const validateForm = () => {
-        const newErrors = {};
-        if (!email) newErrors.email = 'Email is required';
-        else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) newErrors.email = 'Email is invalid';
-        if (!password) newErrors.password = 'Password is required';
-        else if (password.length < 6) newErrors.password = 'Password must be at least 6 characters';
-        return newErrors;
+    const getUserLocalStorage = () => {
+        const user = localStorage.getItem('user');
+        return user ? JSON.parse(user) : null;
     };
 
 
+    const user = getUserLocalStorage();
+
+    if (user) {
+        return <Navigate to={routes.securedPage} />;
+    }
+    const newError = validateLoginForm(email, password);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formErrors = validateForm();
+        const formErrors = newError;
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
         } else {
             setErrors({});
-
             setApiErrors('');
-            setSuccessMessage('');
-
 
             try{
                 const response = await fetch('http://localhost/learning-php/login.php', {
@@ -50,22 +51,33 @@ function Login() {
 
                 const  data = await response.json();
 
-
-                console.log(data);
                 if(response.ok){
                     if(data.success){
-                        setSuccessMessage(data.message);
-                        setApiErrors('');
+                        localStorage.setItem(
+                            'user',
+                            JSON.stringify({
+                                email: data.email,
+                                id: data.userId,
+                            })
+                        );
+                        navigate(routes.securedPage);
                     } else {
                         setApiErrors(data.message);
-                        console.log(apiErrors);
-                        setSuccessMessage('');
+                        setTimeout(() => {
+                            setApiErrors('');
+                        }, 3000);
                     }
                 } else{
                     setApiErrors('Something went wrong. Please try again later.');
+                    setTimeout(() => {
+                        setApiErrors('');
+                    }, 3000);
                 }
             } catch (error) {
                 setApiErrors('Netwrok error. Please try again later.');
+                setTimeout(() => {
+                    setApiErrors('');
+                }, 3000);
             }
         }
     };
