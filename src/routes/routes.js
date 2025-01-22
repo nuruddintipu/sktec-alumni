@@ -7,6 +7,7 @@ import AlumniDirectory from '../components/pages/alumni-directory/AlumniDirector
 import Contact from '../components/pages/contact/Contact';
 import Login from '../components/pages/login/Login';
 import SecuredPage from '../components/pages/login/SecuredPage';
+import RegistrationPage from "../components/pages/registration/components/RegistrationPage";
 
 function authLoader() {
     alert('authLoader');
@@ -26,6 +27,7 @@ const mainLayoutRoutes = [
 
 const minimalLayoutRoutes = [
     {path: 'login', element: <Login/>, loader: authLoader, name: 'LOGIN'},
+    {path: 'registration', element: <RegistrationPage/>, loader: authLoader, name: 'REGISTRATION'},
     {path: 'secured', element: <SecuredPage/>, loader: authLoader, name: 'SECURED'}
 ];
 

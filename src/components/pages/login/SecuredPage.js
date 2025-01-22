@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import routes from '../../../route-paths/routes';
+import {Navigate, useNavigate} from 'react-router-dom';
+import routes from '../../../routes/routes';
 
 function SecuredPage() {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ function SecuredPage() {
     const user = getUserLocalStorage();
 
     if (!user) {
-        return <Navigate to={routes.loginPage} />;
+        return <Navigate to={routes.loginPage}/>;
     }
 
     return (
