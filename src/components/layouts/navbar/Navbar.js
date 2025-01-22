@@ -77,17 +77,15 @@ const NavigationBar = () => {
                 {/* Navbar links */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-dark">
-                        <NamedLink routeName='HOME'
-                                   className="nav-link"
-                                   style={{color: scrolling ? 'white' : 'black'}}>Home</NamedLink>
 
+                        <Nav.Link as={NamedLink} routeName='HOME'
+                                  style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
 
-                        <NamedLink
-                            routeName="ABOUT"
-                            style={{color: scrolling ? 'white' : 'black'}}
-                            className="nav-link">
+                        <Nav.Link as={NamedLink}
+                                  routeName="ABOUT"
+                                  style={{color: scrolling ? 'white' : 'black'}}>
                             About Us
-                        </NamedLink>
+                        </Nav.Link>
 
                         <NavDropdown
                             title='Alumni'
@@ -101,8 +99,8 @@ const NavigationBar = () => {
                         </NavDropdown>
 
 
-                        <NamedLink routeName='LOGIN' className="nav-link"
-                                   style={{color: scrolling ? 'white' : 'black'}}>Login</NamedLink>
+                        <Nav.Link as={NamedLink} routeName='LOGIN'
+                                  style={{color: scrolling ? 'white' : 'black'}}>Login</Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>
