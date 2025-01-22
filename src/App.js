@@ -1,30 +1,13 @@
 import React from 'react';
-import {HashRouter as Router, Routes, Route} from "react-router-dom";
-import Homepage from "./components/pages/homepage/Homepage";
+import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/App.css';
-import RegistrationPage from "./components/pages/registration/components/RegistrationPage";
-import Contact from "./components/pages/contact/Contact";
-import About from "./components/pages/about/About";
-import routes from "./route-paths/routes";
-import MainLayout from "./components/layouts/MainLayout";
-import MinimalLayout from "./components/layouts/MinimalLayout";
-import AlumniDirectory from "./components/pages/alumni-directory/AlumniDirectory";
+import AppRoutes from './AppRoutes';
 
 function App() {
     return (
         <Router>
             <div className="app-container">
-                <Routes>
-                    <Route element={<MainLayout/>}>
-                        <Route path={routes.home} element={<Homepage/>}/>
-                        <Route path={routes.about} element={<About/>}/>
-                        <Route path={routes.alumniDirectory} element={<AlumniDirectory/>}/>
-                        <Route path={routes.contact} element={<Contact/>}/>
-                    </Route>
-                    <Route element={<MinimalLayout/>}>
-                        <Route path={routes.registration} element={<RegistrationPage/>}/>
-                    </Route>
-                </Routes>
+                <AppRoutes />
             </div>
         </Router>
     );

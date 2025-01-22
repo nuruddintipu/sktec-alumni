@@ -2,7 +2,6 @@
   "name": "sktec-alumni",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nuruddintipu.github.io/sktec-alumni",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -45,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "prettier": "^3.4.2"
   }
 }

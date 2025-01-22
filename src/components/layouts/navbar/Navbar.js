@@ -84,9 +84,11 @@ const NavigationBar = () => {
                             id="basic-nav-dropdown"
                             className={dropdownClass}
                         >
-                            <NavDropdown.Item as={Link} to={routes.alumniDirectory}>Alumni Directory</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to={routes.registration}>Join Alumni</NavDropdown.Item>
                         </NavDropdown>
+
+
+                        <Nav.Link as={Link} to={routes.loginPage} style={{color: scrolling ? 'white' : 'black'}}>Login</Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>

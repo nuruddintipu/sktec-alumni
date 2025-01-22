@@ -29,10 +29,7 @@ function AcademicInfoForm() {
 
                 {/* Registration ID & Batch */}
                 <Row className="mt-4">
-                    <Col>
-                        <Form.Control type="text" placeholder="Butex Reg. ID" />
-                    </Col>
-                    <Col>
+                    <Col md={6}>
                         <Form.Select defaultValue="" style={{ color: "grey" }} onChange={(e) => e.target.style.color = e.target.value === "" ? "grey" : "black"}>
                             <option value="" disabled>Batch</option>
                             <option style={{color: 'black'}} value="kendrobindu3">Kendrobindu</option>
