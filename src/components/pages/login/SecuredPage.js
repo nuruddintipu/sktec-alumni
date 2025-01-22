@@ -1,6 +1,6 @@
 import React from 'react';
-import {Navigate, useNavigate} from 'react-router-dom';
-import routes from "../../../route-paths/routes";
+import { Navigate, useNavigate } from 'react-router-dom';
+import routes from '../../../route-paths/routes';
 
 function SecuredPage() {
     const navigate = useNavigate();
@@ -9,7 +9,6 @@ function SecuredPage() {
         const user = localStorage.getItem('user');
         return user ? JSON.parse(user) : null;
     };
-
 
     const user = getUserLocalStorage();
 
@@ -22,9 +21,10 @@ function SecuredPage() {
             <h2>Welcome to the Secured Page</h2>
             <p>You are logged in as: {user.email}</p>
 
-            <button onClick={() => {
+            <button
+                onClick={() => {
                     localStorage.removeItem('user');
-                    navigate(routes.loginPage);
+                    //navigate(routes.loginPage);
                 }}
             >
                 Logout
