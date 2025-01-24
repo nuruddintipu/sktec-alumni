@@ -7,46 +7,41 @@ import AlumniDirectory from '../components/pages/alumni-directory/AlumniDirector
 import Contact from '../components/pages/contact/Contact';
 import Login from '../components/pages/login/Login';
 import SecuredPage from '../components/pages/login/SecuredPage';
-import RegistrationPage from "../components/pages/registration/components/RegistrationPage";
-import {redirect} from "react-router-dom";
+import RegistrationPage from '../components/pages/registration/components/RegistrationPage';
+import { Navigate, redirect } from 'react-router-dom';
 
-function authLoader() {
-    const isAuthenticated = localStorage.getItem('user'); // Example logic
-    if (!isAuthenticated) {
-        return redirect('/auth/login');
-    }
-    return null;
-}
+
+const ProtectedRoutes = ({ routeElement, ...props }) => {
+    const isAuthenticated = false;
+    return isAuthenticated ? routeElement : <Navigate to="/auth/login" />;
+};
 
 const mainLayoutRoutes = [
-    {path: '', element: <Homepage/>, loader: authLoader, name: 'HOME'},
-    {path: 'about', element: <About/>, loader: authLoader, name: 'ABOUT'},
+    { path: '', element: <Homepage />, name: 'HOME' },
+    { path: 'about', element: <About />, name: 'ABOUT' },
     {
         path: 'alumni-directory',
-        element: <AlumniDirectory/>,
-        loader: authLoader,
+        element: <ProtectedRoutes routeElement={<AlumniDirectory />} />,
         name: 'ALUMNI_DIRECTORY'
     },
-    {path: 'contact', element: <Contact/>, loader: authLoader, name: 'CONTACT'}
+    { path: 'contact', element: <Contact />, name: 'CONTACT' }
 ];
 
 const minimalLayoutRoutes = [
-    {path: 'login', element: <Login/>, loader: authLoader, name: 'LOGIN'},
-    {path: 'registration', element: <RegistrationPage/>, loader: authLoader, name: 'REGISTRATION'},
-    {path: 'secured', element: <SecuredPage/>, loader: authLoader, name: 'SECURED_PAGE'}
+    { path: 'login', element: <Login />, name: 'LOGIN' },
+    { path: 'registration', element: <RegistrationPage />, name: 'REGISTRATION' },
+    { path: 'secured', element: <ProtectedRoutes routeElement={<SecuredPage />} />, name: 'SECURED_PAGE' }
 ];
 
 const routes = [
     {
         path: '/',
-        element: <MainLayout/>,
-        loader: authLoader,
+        element: <MainLayout />,
         children: mainLayoutRoutes
     },
     {
         path: 'auth',
-        element: <MinimalLayout/>,
-        loader: authLoader,
+        element: <MinimalLayout />,
         children: minimalLayoutRoutes
     }
 ];
