@@ -9,6 +9,7 @@ import Login from '../components/pages/login/Login';
 import SecuredPage from '../components/pages/login/SecuredPage';
 import RegistrationPage from '../components/pages/registration/components/RegistrationPage';
 import { Navigate, redirect } from 'react-router-dom';
+import FoundingStory from '../components/pages/founding-story/FoundingStory';
 
 
 const ProtectedRoutes = ({ routeElement, ...props }) => {
@@ -24,7 +25,8 @@ const mainLayoutRoutes = [
         element: <ProtectedRoutes routeElement={<AlumniDirectory />} />,
         name: 'ALUMNI_DIRECTORY'
     },
-    { path: 'contact', element: <Contact />, name: 'CONTACT' }
+    { path: 'contact', element: <Contact />, name: 'CONTACT' },
+    { path: 'founding-story', element: <FoundingStory />, name: 'FOUNDING_STORY' }
 ];
 
 const minimalLayoutRoutes = [
