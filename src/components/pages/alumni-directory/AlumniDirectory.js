@@ -8,17 +8,9 @@ import { initialState } from './hooks/alumniReducer';
 import PaginationComponent from '../../common/pagination/Pagination';
 import { exampleAlumni } from '../../../utils/exampleAlumni';
 
-
 const AlumniDirectory = () => {
-//     const apiUrl = "https://7347c502-f63c-47d0-97fc-aec36d330913.mock.pstmn.io/alumni-data";
-//     const {data: allAlumni, loading, error} = useFetch(apiUrl);
 
     const { state, handlePaginationClick, handleChange } = useAlumniReducer(initialState, exampleAlumni);
-
-    //
-    // if (loading || error) {
-    //     return <LoadingSpinner loading={loading} error={error}/>;
-    // }
 
     return (
         <Container>
