@@ -1,14 +1,12 @@
-import {useEffect, useReducer} from "react";
-import {regFormReducer} from "./regFormReducer";
-import {disableButton, setError, setFieldValue, setNextStep} from "./regFormActions";
-import {validateField} from "./reducer-helpers/validateField";
-import {isValidFormInputs, validateCurrentSection} from "./reducer-helpers/validateCurrentSection";
-import {initialState} from "./initialState";
-import {eligibilityValidationRules} from "./reducer-helpers/validationRules";
-import {checkEligibility} from "./reducer-helpers/checkEligibility";
-import {toggleButtonState} from "./reducer-helpers/toggleButtonState";
-import {stepHandlers} from "./reducer-helpers/stepHandlers";
-import {checkMemberExist} from "./reducer-helpers/checkMemberExist";
+import { useEffect, useReducer } from 'react';
+import { regFormReducer } from './regFormReducer';
+import { setError, setFieldValue } from './regFormActions';
+import { validateField } from './reducer-helpers/validateField';
+import { isValidFormInputs } from './reducer-helpers/validateCurrentSection';
+import { initialState } from './initialState';
+import { eligibilityValidationRules } from './reducer-helpers/validationRules';
+import { toggleButtonState } from './reducer-helpers/toggleButtonState';
+import { stepHandlers } from './reducer-helpers/stepHandlers';
 
 export const useRegFormReducer = (initialState, validationRules) => {
     const [state, dispatch] = useReducer(regFormReducer, initialState);
@@ -18,14 +16,14 @@ export const useRegFormReducer = (initialState, validationRules) => {
 
         dispatch(setFieldValue(section, field, value));
 
-        dispatch(setError(section, field, error === true ? "" : error));
+        dispatch(setError(section, field, error === true ? '' : error));
 
         toggleButtonState(error, dispatch);
 
     };
 
     const handleNext = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const isFormValid = isValidFormInputs(state, dispatch, validationRules);
         if (!isFormValid) return;
@@ -38,7 +36,7 @@ export const useRegFormReducer = (initialState, validationRules) => {
         console.log(state);
     }, [state]);
 
-    return {state, handleChange, handleNext};
+    return { state, handleChange, handleNext };
 
 };
 

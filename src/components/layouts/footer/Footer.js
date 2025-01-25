@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SocialIcons from './SocialIcons';
-import FooterBrand from "./FooterBrand";
-import FooterLinks from "./FooterLinks";
+import FooterBrand from './FooterBrand';
+import FooterLinks from './FooterLinks';
 import { Container, Row } from 'react-bootstrap';
 
 import Copyrights from './Copyrights';

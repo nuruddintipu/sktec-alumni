@@ -1,12 +1,11 @@
-import {useReducer} from "react";
-import axios from "axios";
+import { useReducer } from 'react';
 
 // Action Types as Constants
 const actionTypes = {
-    UPDATE_FIELD: "update_field",
-    SET_ERROR: "set_error",
-    SET_STATUS: "set_status",
-    RESET: "reset",
+    UPDATE_FIELD: 'update_field',
+    SET_ERROR: 'set_error',
+    SET_STATUS: 'set_status',
+    RESET: 'reset'
 };
 
 // Reducer Function
@@ -15,20 +14,20 @@ const formReducer = (state, action) => {
         case actionTypes.UPDATE_FIELD:
             return {
                 ...state,
-                [action.field]: action.value,
+                [action.field]: action.value
             };
         case actionTypes.SET_ERROR:
             return {
                 ...state,
                 errors: {
                     ...state.errors,
-                    [action.field]: action.value,
-                },
+                    [action.field]: action.value
+                }
             };
         case actionTypes.SET_STATUS:
             return {
                 ...state,
-                status: action.value,
+                status: action.value
             };
         case actionTypes.RESET:
             return action.initialState;
@@ -43,18 +42,16 @@ const useContactFormReducer = (initialState, validationRules) => {
     const [state, dispatch] = useReducer(formReducer, initialState);
 
 
-
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        dispatch({ type: actionTypes.UPDATE_FIELD, field: name, value: value});
+        const { name, value } = e.target;
+        dispatch({ type: actionTypes.UPDATE_FIELD, field: name, value: value });
 
         // Perform field-level validation if rules exist
         if (validationRules[name]) {
             const error = validationRules[name](value);
-            dispatch({ type: actionTypes.SET_ERROR, field: name, value: error || "" });
+            dispatch({ type: actionTypes.SET_ERROR, field: name, value: error || '' });
         }
     };
-
 
 
     const validateForm = () => {
@@ -70,13 +67,13 @@ const useContactFormReducer = (initialState, validationRules) => {
     };
 
     const resetForm = () => {
-        dispatch({type: actionTypes.RESET, initialState});
-    }
+        dispatch({ type: actionTypes.RESET, initialState });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            dispatch({type: actionTypes.SET_STATUS, value: "success"});
+            dispatch({ type: actionTypes.SET_STATUS, value: 'success' });
             setTimeout(() => resetForm(), 3000);
         }
 
@@ -97,13 +94,12 @@ const useContactFormReducer = (initialState, validationRules) => {
     };
 
 
-
     return {
         state,
         handleChange,
         handleSubmit,
         resetForm,
-        dispatch, // Optional, for advanced use
+        dispatch // Optional, for advanced use
     };
 };
 

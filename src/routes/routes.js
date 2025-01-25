@@ -8,7 +8,7 @@ import Contact from '../components/pages/contact/Contact';
 import Login from '../components/pages/login/Login';
 import SecuredPage from '../components/pages/login/SecuredPage';
 import RegistrationPage from '../components/pages/registration/components/RegistrationPage';
-import { Navigate, redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import FoundingStory from '../components/pages/founding-story/FoundingStory';
 
 

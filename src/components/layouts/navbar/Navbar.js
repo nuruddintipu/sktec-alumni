@@ -4,8 +4,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logoNavyBlue from '../../../assets/images/saa-logo.png';
 import logoWhite from '../../../assets/images/saa-logo-white.png';
 import './navbar.css';
-import { Link } from 'react-router-dom';
-import routes from '../../../routes/routes';
 import NamedLink from '../../../routes/NamedLink';
 
 const NavigationBar = () => {

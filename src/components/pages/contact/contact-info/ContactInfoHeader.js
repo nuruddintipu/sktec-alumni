@@ -1,12 +1,12 @@
-import {contactInfoDefaultText, headerText} from "../contact-page-text/contactInfoSectionText";
-import React from "react";
+import { contactInfoDefaultText } from '../contact-page-text/contactInfoSectionText';
+import React from 'react';
 
 const ContactInfoHeader = ({
                                headlineStyle,
                                headlineClass,
                                bodytextStyle,
                                bodytextClass
-}) => {
+                           }) => {
     return (
         <>
             <h3

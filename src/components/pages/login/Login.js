@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
-import {Form, Button, Alert} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 import './Login.css';
-import routes from "../../../routes/routes";
-import {Navigate, useNavigate} from 'react-router-dom';
-import {validateLoginForm} from "./validateLoginForm";
-import {getRoutePath} from "../../../routes/NamedLink";
+import { useNavigate } from 'react-router-dom';
+import { validateLoginForm } from './validateLoginForm';
+import { getRoutePath } from '../../../routes/NamedLink';
 
 function Login() {
 
@@ -58,7 +57,7 @@ function Login() {
                             'user',
                             JSON.stringify({
                                 email: data.email,
-                                id: data.userId,
+                                id: data.userId
                             })
                         );
                         navigate(getRoutePath('SECURED_PAGE'));
