@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {Navbar, Nav, Container, Image} from 'react-bootstrap';
-import NavDropdown from "react-bootstrap/NavDropdown";
+import React, { useEffect, useState } from 'react';
+import { Navbar, Nav, Container, Image } from 'react-bootstrap';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import logoNavyBlue from '../../../assets/images/saa-logo.png';
 import logoWhite from '../../../assets/images/saa-logo-white.png';
 import './navbar.css';
-import {Link} from "react-router-dom";
-import routes from "../../../route-paths/routes";
+import NamedLink from '../../../routes/NamedLink';
 
 const NavigationBar = () => {
     // State for scrolling behavior
@@ -44,19 +43,19 @@ const NavigationBar = () => {
 
     return (
         <Navbar
-            variant={scrolling?'dark':''}
+            variant={scrolling ? 'dark' : ''}
             expand="lg"
             sticky="top"
             className="border-bottom"
             style={{
                 backgroundColor: navbarBg, // Dynamic background color
                 transition: 'background-color 0.3s ease-in-out',
-                boxShadow: navbarBg === 'transparent' ? 'none' : '0px 2px 5px #000',
+                boxShadow: navbarBg === 'transparent' ? 'none' : '0px 2px 5px #000'
             }}
         >
             <Container>
                 {/* Logo */}
-                <Navbar.Brand as={Link} to="/">
+                <Navbar.Brand as={NamedLink} routeName="HOME">
                     <Image
                         alt="SAA Logo"
                         src={logo}
@@ -69,26 +68,44 @@ const NavigationBar = () => {
                 <Navbar.Toggle
                     aria-controls="basic-navbar-nav"
                     style={{
-                        borderColor: scrolling ? 'white' : 'black',
+                        borderColor: scrolling ? 'white' : 'black'
                     }}
                 />
 
                 {/* Navbar links */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-dark">
-                        <Nav.Link as={Link} to={routes.home} style={{color: scrolling ? 'white' : 'black'}}>Home</Nav.Link>
-                        <Nav.Link as={Link} to={routes.about} style={{color: scrolling ? 'white' : 'black'}}>About Us</Nav.Link>
 
+                        <Nav.Link as={NamedLink} routeName="HOME"
+                                  style={{ color: scrolling ? 'white' : 'black' }}>Home</Nav.Link>
                         <NavDropdown
-                            title='Alumni'
+                            title={'About'}
                             id="basic-nav-dropdown"
                             className={dropdownClass}
                         >
-                            <NavDropdown.Item as={Link} to={routes.registration}>Join Alumni</NavDropdown.Item>
+                            <NavDropdown.Item as={NamedLink} routeName="FOUNDING_STORY">
+                                Founding Story
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={NamedLink} routeName="CONSTITUTION">Constitution</NavDropdown.Item>
+                            <NavDropdown.Item as={NamedLink} routeName="ABOUT">
+                                About Us
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                        <NavDropdown
+                            title="Alumni"
+                            id="basic-nav-dropdown"
+                            className={dropdownClass}
+                        >
+                            <NavDropdown.Item as={NamedLink} routeName="REGISTRATION">
+                                Join Alumni
+                            </NavDropdown.Item>
+
                         </NavDropdown>
 
 
-                        <Nav.Link as={Link} to={routes.loginPage} style={{color: scrolling ? 'white' : 'black'}}>Login</Nav.Link>
+                        <Nav.Link as={NamedLink} routeName="LOGIN"
+                                  style={{ color: scrolling ? 'white' : 'black' }}>Login</Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>

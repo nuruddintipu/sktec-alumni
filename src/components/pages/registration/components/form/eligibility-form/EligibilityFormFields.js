@@ -1,10 +1,9 @@
-import FormRowWrapper from "../../../../../common/FormRowWrapper";
-import { Row } from "react-bootstrap";
-import React from "react";
-import {renderDropdownFields, renderInputFields} from "./renderEligibilityFormInputFields";
+import FormRowWrapper from '../../../../../common/FormRowWrapper';
+import React from 'react';
+import { renderInputFields } from './renderEligibilityFormInputFields';
 
 
-export const EligibilityFormFields = ({onChange, state}) => {
+export const EligibilityFormFields = ({ onChange, state }) => {
     return (
         <>
             <FormRowWrapper md={12} className="mt-3">

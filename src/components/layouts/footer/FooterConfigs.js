@@ -1,4 +1,4 @@
-import routes from '../../../route-paths/routes';
+import routes from '../../../routes/routes';
 
 export const brandData = {
     name: 'SKTEC Alumni Association',

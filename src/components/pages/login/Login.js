@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
-import {Form, Button, Alert} from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
 import './Login.css';
-import routes from "../../../route-paths/routes";
-import {Navigate, useNavigate} from 'react-router-dom';
-import {validateLoginForm} from "./validateLoginForm";
+import { useNavigate } from 'react-router-dom';
+import { validateLoginForm } from './validateLoginForm';
+import { getRoutePath } from '../../../routes/NamedLink';
 
 function Login() {
 
@@ -24,8 +23,9 @@ function Login() {
     const user = getUserLocalStorage();
 
     if (user) {
-        return <Navigate to={routes.securedPage} />;
+        // return navigate(getRoutePath('HOME'));
     }
+
     const newError = validateLoginForm(email, password);
 
     const handleSubmit = async (event) => {
@@ -37,37 +37,37 @@ function Login() {
             setErrors({});
             setApiErrors('');
 
-            try{
+            try {
                 const response = await fetch('http://localhost/learning-php/login.php', {
-                   method: 'POST',
-                   headers: {
-                       'Content-Type': 'application/json'
-                   },
-                   body: JSON.stringify({
-                       email,
-                       password
-                   })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
                 });
 
-                const  data = await response.json();
+                const data = await response.json();
 
-                if(response.ok){
-                    if(data.success){
+                if (response.ok) {
+                    if (data.success) {
                         localStorage.setItem(
                             'user',
                             JSON.stringify({
                                 email: data.email,
-                                id: data.userId,
+                                id: data.userId
                             })
                         );
-                        navigate(routes.securedPage);
+                        navigate(getRoutePath('SECURED_PAGE'));
                     } else {
                         setApiErrors(data.message);
                         setTimeout(() => {
                             setApiErrors('');
                         }, 3000);
                     }
-                } else{
+                } else {
                     setApiErrors('Something went wrong. Please try again later.');
                     setTimeout(() => {
                         setApiErrors('');
