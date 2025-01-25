@@ -6,10 +6,8 @@ import TopBarContainer from '../TopBarContainer';
 
 const EligibilityFormTopBar = ({
                                    eligibilityTopBarText,
-                                   style,
                                    className,
-                                   state,
-                                   ...rest
+                                   state
                                }) => {
 
     return (

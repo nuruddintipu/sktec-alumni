@@ -12,7 +12,7 @@ import { Navigate } from 'react-router-dom';
 import FoundingStory from '../components/pages/founding-story/FoundingStory';
 
 
-const ProtectedRoutes = ({ routeElement, ...props }) => {
+const ProtectedRoutes = ({ routeElement }) => {
     const isAuthenticated = false;
     return isAuthenticated ? routeElement : <Navigate to="/auth/login" />;
 };

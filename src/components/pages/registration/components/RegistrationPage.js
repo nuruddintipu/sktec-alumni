@@ -8,9 +8,7 @@ import { useRegistration } from '../../../../hooks/registration/useRegFormReduce
 
 
 function RegistrationPage({
-                              heading = <SectionHeading heading={''} containerClass={'d-flex'} />,
-                              content = <>
-                              </>
+                              heading = <SectionHeading heading={''} containerClass={'d-flex'} />
                           }) {
 
     const { state, handleChange, handleNext } = useRegistration();
