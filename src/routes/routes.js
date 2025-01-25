@@ -14,7 +14,7 @@ import Constitution from '../components/pages/constitution/Constitution';
 
 
 const ProtectedRoutes = ({ routeElement }) => {
-    const isAuthenticated = false;
+    const isAuthenticated = true;
     return isAuthenticated ? routeElement : <Navigate to="/auth/login" />;
 };
 
