@@ -86,6 +86,7 @@ const NavigationBar = () => {
                             <NavDropdown.Item as={NamedLink} routeName="FOUNDING_STORY">
                                 Founding Story
                             </NavDropdown.Item>
+                            <NavDropdown.Item as={NamedLink} routeName="CONSTITUTION">Constitution</NavDropdown.Item>
                             <NavDropdown.Item as={NamedLink} routeName="ABOUT">
                                 About Us
                             </NavDropdown.Item>

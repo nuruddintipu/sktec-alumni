@@ -10,6 +10,7 @@ import SecuredPage from '../components/pages/login/SecuredPage';
 import RegistrationPage from '../components/pages/registration/components/RegistrationPage';
 import { Navigate } from 'react-router-dom';
 import FoundingStory from '../components/pages/founding-story/FoundingStory';
+import Constitution from '../components/pages/constitution/Constitution';
 
 
 const ProtectedRoutes = ({ routeElement }) => {
@@ -26,7 +27,8 @@ const mainLayoutRoutes = [
         name: 'ALUMNI_DIRECTORY'
     },
     { path: 'contact', element: <Contact />, name: 'CONTACT' },
-    { path: 'founding-story', element: <FoundingStory />, name: 'FOUNDING_STORY' }
+    { path: 'founding-story', element: <FoundingStory />, name: 'FOUNDING_STORY' },
+    { path: 'constitution', element: <Constitution />, name: 'CONSTITUTION' }
 ];
 
 const minimalLayoutRoutes = [
