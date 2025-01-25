@@ -38,7 +38,7 @@ function Login() {
             setApiErrors('');
 
             try {
-                const response = await fetch('http://localhost/learning-php/login.php', {
+                const response = await fetch('http://localhost/sktec-alumni-api/login/index.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
