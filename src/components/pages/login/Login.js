@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { validateLoginForm } from './validateLoginForm';
 import { getRoutePath } from '../../../routes/NamedLink';
+import { checkSession, login } from '../../../services/authService/authService';
 
 function Login() {
 
@@ -13,73 +14,52 @@ function Login() {
     const [apiErrors, setApiErrors] = useState('');
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const verifySession = async () => {
+            try {
+                const sessionData = await checkSession();
+                if (sessionData.authenticated) {
+                    navigate(getRoutePath('HOME'));
+                }
+            } catch (error) {
+                console.error('Error verifying session:', error);
+            }
+        };
 
-    const getUserLocalStorage = () => {
-        const user = localStorage.getItem('user');
-        return user ? JSON.parse(user) : null;
-    };
-
-
-    const user = getUserLocalStorage();
-
-    if (user) {
-        // return navigate(getRoutePath('HOME'));
-    }
+        verifySession();
+    }, [navigate]);
 
     const newError = validateLoginForm(email, password);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         const formErrors = newError;
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
-        } else {
-            setErrors({});
-            setApiErrors('');
-
-            try {
-                const response = await fetch('http://localhost/sktec-alumni-api/login/index.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email,
-                        password
-                    })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    if (data.success) {
-                        localStorage.setItem(
-                            'user',
-                            JSON.stringify({
-                                email: data.email,
-                                id: data.userId
-                            })
-                        );
-                        navigate(getRoutePath('SECURED_PAGE'));
-                    } else {
-                        setApiErrors(data.message);
-                        setTimeout(() => {
-                            setApiErrors('');
-                        }, 3000);
-                    }
-                } else {
-                    setApiErrors('Something went wrong. Please try again later.');
-                    setTimeout(() => {
-                        setApiErrors('');
-                    }, 3000);
-                }
-            } catch (error) {
-                setApiErrors('Netwrok error. Please try again later.');
-                setTimeout(() => {
-                    setApiErrors('');
-                }, 3000);
-            }
+            return;
         }
+
+        setErrors({});
+        setApiErrors('');
+
+        try {
+            const loginResponse = await login(email, password);
+            if (loginResponse.success) {
+                navigate(getRoutePath('SECURED_PAGE'));
+            } else {
+                handleApiError(loginResponse.message);
+            }
+        } catch (error) {
+            handleApiError('Error logging in');
+        }
+    };
+
+    const handleApiError = (message) => {
+        setApiErrors(message);
+        setTimeout(() => {
+            setApiErrors('');
+        }, 3000);
     };
 
 

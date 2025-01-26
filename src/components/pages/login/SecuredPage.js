@@ -1,29 +1,31 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getRoutePath } from '../../../routes/NamedLink';
+import { logout } from '../../../services/authService/authService';
 
 function SecuredPage() {
-    const getUserLocalStorage = () => {
-        const user = localStorage.getItem('user');
-        return user ? JSON.parse(user) : null;
+    const navigate = useNavigate();
+    const handleLogout = async () => {
+
+        try {
+            const logoutResponse = await logout();
+            if (logoutResponse.success) {
+                navigate(getRoutePath('LOGIN'));
+            } else {
+                console.log('Error logging out');
+            }
+        } catch (error) {
+            console.error('Error logging out:', error);
+        }
     };
-
-    const user = getUserLocalStorage();
-
-    if (!user) {
-        return <Navigate to={getRoutePath('LOGIN')} />;
-    }
 
     return (
         <div>
             <h2>Welcome to the Secured Page</h2>
-            <p>You are logged in as: {user.email}</p>
+            {/*<p>You are logged in as: {user.email}</p>*/}
 
             <button
-                onClick={() => {
-                    localStorage.removeItem('user');
-                    // navigate(<Login/>)
-                }}
+                onClick={handleLogout}
             >
                 Logout
             </button>
