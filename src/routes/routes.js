@@ -11,10 +11,26 @@ import RegistrationPage from '../components/pages/registration/components/Regist
 import { Navigate } from 'react-router-dom';
 import FoundingStory from '../components/pages/founding-story/FoundingStory';
 import Constitution from '../components/pages/constitution/Constitution';
+import { isAuthenticatedUser } from '../services/authService/authService';
+import { useEffect, useState } from 'react';
 
 
 const ProtectedRoutes = ({ routeElement }) => {
-    const isAuthenticated = true;
+    const [isAuthenticated, setIsAuthenticated] = useState(null); // null initially to indicate loading
+
+    useEffect(() => {
+        const checkAuthentication = async () => {
+            const authenticated = await isAuthenticatedUser();
+            setIsAuthenticated(authenticated);
+        };
+
+        checkAuthentication();
+    }, []);
+
+    if (isAuthenticated === null) {
+        return <div>Loading...</div>;
+    }
+
     return isAuthenticated ? routeElement : <Navigate to="/auth/login" />;
 };
 
