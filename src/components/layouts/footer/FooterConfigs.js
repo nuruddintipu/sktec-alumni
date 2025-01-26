@@ -1,5 +1,3 @@
-import routes from '../../../routes/routes';
-
 export const brandData = {
     name: 'SKTEC Alumni Association',
     slogan: 'Connecting Generations, Building Future'
