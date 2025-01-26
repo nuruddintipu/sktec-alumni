@@ -1,5 +1,5 @@
-import routes from "./routes";
-import {Link} from "react-router-dom";
+import routes from './routes';
+import { Link } from 'react-router-dom';
 
 const normalizePath = (parentPath, routePath) => {
     const combinedPath = `${parentPath}${routePath ? `/${routePath}` : ''}`;
@@ -9,6 +9,10 @@ const normalizePath = (parentPath, routePath) => {
 export const getRoutePath = (routeName, routeList = routes, parentPath = '') => {
     for (const route of routeList) {
         const fullPath = normalizePath(parentPath, route.path);
+
+        if (route.name === routeName && (route.path === '' || fullPath === '')) {
+            return '/';
+        }
 
         if (route.name === routeName) {
             return fullPath;
@@ -24,8 +28,9 @@ export const getRoutePath = (routeName, routeList = routes, parentPath = '') => 
     return null;
 };
 
-const NamedLink = ({routeName, children, ...props}) => {
-    const path = getRoutePath(routeName) || '';
+
+const NamedLink = ({ routeName, children, ...props }) => {
+    const path = getRoutePath(routeName);
     return <Link to={path} {...props}>{children}</Link>;
 };
 
